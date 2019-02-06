@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NewsFeed from '../widgets/NewsFeed';
+import NewsFeed from '../../containers/NewsFeed';
 
 const Home = (props: any) => {
   return (

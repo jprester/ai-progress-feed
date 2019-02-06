@@ -1,12 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
-import './App.css';
-
+import { fetchNews } from './actions/';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import NewsItemPage from './components/pages/NewsItemPage';
-import { newsData } from './helpers/dummyData';
+import './App.css';
 
 export interface Props {
   name: string;
@@ -16,13 +17,11 @@ export interface Props {
 class App extends React.Component<any, any> {
   constructor(props: {}) {
     super(props);
-
-    this.submitText.bind(this);
   }
 
-  submitText(event: any) {
-    console.log("the event we log: ", event.target);
-  };
+  componentDidMount() {
+    this.props.fetchNews();
+  }
 
   render() {
     return (
@@ -40,7 +39,7 @@ class App extends React.Component<any, any> {
             <Route
               exact
               path="/" 
-              render={(history) => <Home historyData={history} data={newsData} />}
+              render={(history) => <Home historyData={history} />}
             />
             <Route
               path="/news/:id"
@@ -57,4 +56,10 @@ class App extends React.Component<any, any> {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  fetchNews: () => dispatch(fetchNews()),
+});
+
+export default withRouter(
+  connect(null, mapDispatchToProps)(App) as any
+);
