@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -9,21 +9,21 @@ import About from './components/pages/About';
 import NewsItemPage from './components/pages/NewsItemPage';
 import './App.css';
 
-export interface Props {
-  name: string;
-  data: {}
+interface IProps {
+  fetchNews: () => any;
+  history: {};
 }
 
-class App extends React.Component<any, any> {
-  constructor(props: {}) {
+class App extends React.Component<IProps> {
+  constructor(props: IProps) {
     super(props);
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     this.props.fetchNews();
   }
 
-  render() {
+  public render() {
     return (
       <div className="App">
           <div>
@@ -38,7 +38,7 @@ class App extends React.Component<any, any> {
 
             <Route
               exact
-              path="/" 
+              path="/"
               render={(history) => <Home historyData={history} />}
             />
             <Route
@@ -61,5 +61,5 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 export default withRouter(
-  connect(null, mapDispatchToProps)(App) as any
+  connect(null, mapDispatchToProps)(App) as any,
 );

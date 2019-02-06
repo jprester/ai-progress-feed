@@ -1,0 +1,25 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:latest",
+        "tslint-react"
+    ],
+    "rules": {
+        // override tslint-react rules here
+        "jsx-wrap-multiline": false,
+        "quotemark": [
+            true,
+            "single",
+            "avoid-escape",
+            "avoid-template",
+            "jsx-double"
+        ],
+        "indent": [
+            true,
+            "spaces",
+            2
+        ]
+    },
+    "jsRules": {},
+    "rulesDirectory": []
+}

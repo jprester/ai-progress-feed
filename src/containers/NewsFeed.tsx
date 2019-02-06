@@ -3,10 +3,15 @@ import { connect } from 'react-redux';
 
 import NewsItem from '../components/widgets/NewsItem';
 
-const NewsFeed = (props: any) => {
-  if (!props || !props.newsData) {
-    console.log("news feed props", props);
+interface NewsFeedProps {
+  historyData: {
+    match: {}
+  },
+  newsData: []
+}
 
+const NewsFeed: React.FC<NewsFeedProps> = props => {
+  if (!props || !props.newsData) {
     return <p>Didnt recieve any data</p>;
   }
 
@@ -25,9 +30,8 @@ const NewsFeed = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => {
-  console.log("current state", state);
   return {
-    newsData: state.stateData.newsData,
+    newsData: state.newsData,
   }
 }
 
