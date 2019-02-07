@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 
 import NewsItem from '../components/widgets/NewsItem';
 
-interface NewsFeedProps {
+interface INewsFeedProps {
   historyData: {
-    match: {}
-  },
-  newsData: []
+    match: {},
+  };
+  newsData: [];
 }
 
-const NewsFeed: React.FC<NewsFeedProps> = props => {
+const NewsFeed: React.FC<INewsFeedProps> = props => {
   if (!props || !props.newsData) {
     return <p>Didnt recieve any data</p>;
   }
