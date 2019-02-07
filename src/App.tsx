@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import {Link, BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 
 import { fetchNews } from './actions/';
 import Home from './components/pages/Home';

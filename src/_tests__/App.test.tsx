@@ -1,11 +1,11 @@
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { shallow, mount } from 'enzyme';
 
-import App from './App';
-import Root from './Root';
-import NewsFeed from './containers/NewsFeed';
+import App from '../App';
+import NewsFeed from '../containers/NewsFeed';
+import Root from '../Root';
 
 let wrapped;
 
