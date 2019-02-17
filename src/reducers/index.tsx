@@ -1,4 +1,4 @@
-import { FETCH_NEWS } from '../actions/types';
+import { GET_NEWS_ARTICLES } from '../actions/types';
 
 interface IState {
   newsData: number[];
@@ -10,10 +10,10 @@ const INITIAL_STATE = {
 
 export default (state: IState = INITIAL_STATE, action: any) => {
   switch (action.type) {
-    case FETCH_NEWS:
+    case GET_NEWS_ARTICLES:
       return {
         ...state,
-        newsData: action.payload,
+        newsData: action.payload.data.articles,
       };
   }
   return state;

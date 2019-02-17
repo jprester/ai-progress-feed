@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NewsFeed from '../../containers/NewsFeed';
+import NewsList from '../../containers/NewsList';
 
 const Home = (props: any) => {
   return (
@@ -8,7 +8,7 @@ const Home = (props: any) => {
       <h1>Home</h1>
       <p>lorem ipsum</p>
 
-      <NewsFeed {...props} />
+      <NewsList {...props} />
     </div>
   )
 }

@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Link, Route, withRouter } from 'react-router-dom';
 import { Dispatch } from 'redux';
-import {Link, BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 
-import { fetchNews } from './actions/';
-import Home from './components/pages/Home';
-import About from './components/pages/About';
-import NewsItemPage from './components/pages/NewsItemPage';
+import { startNewsFetch } from './actions/';
 import './App.css';
+import About from './components/pages/About';
+import Home from './components/pages/Home';
+import NewsPage from './containers/NewsPage';
 
 interface IProps {
-  fetchNews: () => any;
+  startNewsFetch: () => any;
   history: {};
 }
 
@@ -20,7 +20,7 @@ class App extends React.Component<IProps> {
   }
 
   public componentDidMount() {
-    this.props.fetchNews();
+    this.props.startNewsFetch();
   }
 
   public render() {
@@ -43,7 +43,7 @@ class App extends React.Component<IProps> {
             />
             <Route
               path="/news/:id"
-              component={NewsItemPage}
+              component={NewsPage}
             />
             <Route
               exact
@@ -56,8 +56,8 @@ class App extends React.Component<IProps> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchNews: () => dispatch(fetchNews()),
+const mapDispatchToProps = (dispatch: any) => ({
+  startNewsFetch: () => dispatch(startNewsFetch()),
 });
 
 export default withRouter(

@@ -1,1 +1,2 @@
 export const FETCH_NEWS = 'FETCH_NEWS';
+export const GET_NEWS_ARTICLES = 'GET_NEWS_ARTICLES';
