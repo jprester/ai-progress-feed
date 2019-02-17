@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import NewsPageContent from '../components/pages/NewsPageContent';
+import NewsPage from '../components/pages/NewsPage';
 
 const mapStateToProps = (state: any) => {
   return {
@@ -9,4 +9,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps)(NewsPageContent);
+export default connect(mapStateToProps)(NewsPage);

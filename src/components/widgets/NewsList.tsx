@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import NewsListItem from '../components/widgets/NewsListItem';
-import { createIdFromTitle } from '../helpers/utils';
+import { createIdFromTitle } from '../../helpers/utils';
+import NewsListItem from './NewsListItem';
 
-interface INewsFeedProps {
+interface INewsListProps {
   historyData: {
     match: {},
   };
   newsData: [];
 }
 
-const NewsFeed: React.FC<INewsFeedProps> = (props) => {
+const NewsList: React.FC<INewsListProps> = (props) => {
   if (!props || !Array.isArray(props.newsData) || !props.newsData.length) {
     return <p>Loading...</p>;
   }
@@ -30,10 +30,4 @@ const NewsFeed: React.FC<INewsFeedProps> = (props) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return {
-    newsData: state.newsData,
-  };
-};
-
-export default connect(mapStateToProps)(NewsFeed);
+export default NewsList;

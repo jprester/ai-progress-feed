@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link,  Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { createIdFromTitle } from '../../helpers/utils';
 
