@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
+import NewsPageContainer from '../containers/NewsPageContainer';
 import About from './pages/About';
 import Home from './pages/Home';
-import NewsPageContainer from '../containers/NewsPageContainer';
 
 const Routes = () => (
-  <div>
+  <div className="main-container">
     <Route
       exact
       path="/"

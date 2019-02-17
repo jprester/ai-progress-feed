@@ -2,12 +2,16 @@ import React from 'react';
 
 import NewsListContainer from '../../containers/NewsListContainer';
 
-const Home = (props:any) => {
-  return (
-    <div>
-      <h1>Home</h1>
-      <p>lorem ipsum</p>
+interface IHomePageProps {
+  historyData: {
+    match: {};
+  };
+}
 
+const Home: React.FC<IHomePageProps> = (props) => {
+  return (
+    <div className="home-page">
+      <h1>News</h1>
       <NewsListContainer {...props}/>
     </div>
   )

@@ -17,16 +17,13 @@ const NewsList: React.FC<INewsListProps> = (props) => {
   }
 
   return (
-    <Fragment>
-      <h1>Here are the news</h1>
-      <ul>
-        {
-          props.newsData.map((item: any) => {
-            return <NewsListItem key={ createIdFromTitle(item.title) } { ...item } match={props.historyData.match} />;
-          })
-        }
-      </ul>
-    </Fragment>
+    <ul>
+      {
+        props.newsData.map((item: any) => {
+          return <NewsListItem key={ createIdFromTitle(item.title) } { ...item } match={props.historyData.match} />;
+        })
+      }
+    </ul>
   );
 };
 

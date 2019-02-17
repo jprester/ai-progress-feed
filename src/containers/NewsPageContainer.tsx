@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 
 import NewsPage from '../components/pages/NewsPage';
 
-const mapStateToProps = (state: any) => {
+interface INewsPageState {
+  newsData: [];
+}
+
+const mapStateToProps = (state: INewsPageState) => {
   return {
     newsData: state.newsData,
   };
