@@ -6,14 +6,14 @@ import { FETCH_NEWS, GET_NEWS_ARTICLES } from './types';
 
 export const startNewsFetch = () => (dispatch: Dispatch) =>
    getTopHeadlines()
-    .then((response: any) => {
+    .then((response: {}) => {
       dispatch(getNewsArticles(response));
     })
     .catch((error) => {
-      console.log(error);
+      console.warn(error);
     });
 
-export const getNewsArticles = (response: any) => ({
+export const getNewsArticles = (response: {}) => ({
   payload: response,
   type: GET_NEWS_ARTICLES,
 });
