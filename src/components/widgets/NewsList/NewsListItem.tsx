@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { createIdFromTitle } from '../../helpers/utils';
+import { createIdFromTitle } from '../../../helpers/utils';
 
 interface INewsListItemProps {
   match: {
@@ -15,7 +15,7 @@ const NewsItem: React.FC<INewsListItemProps> = (props) => (
   <li>
     {props.title}, <br />
     {props.publishedAt}, <br />
-    <Link to={`/news${props.match.path + createIdFromTitle(props.title)}`}>Click</Link>
+    <Link to={`/news${'/' + createIdFromTitle(props.title)}`}>Click</Link>
     <hr />
   </li>
 );

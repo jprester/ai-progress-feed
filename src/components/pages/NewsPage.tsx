@@ -2,15 +2,6 @@ import React from 'react';
 
 import { createIdFromTitle } from '../../helpers/utils';
 
-interface INewsPageProps {
-  newsData: [];
-  match: {
-    params: {
-      id: string;
-    },
-  };
-}
-
 interface IExtendedNewsItemProps {
   id: string;
   title: string;
@@ -19,9 +10,10 @@ interface IExtendedNewsItemProps {
   url: string;
 }
 
-const NewsPageContent = (props: INewsPageProps) => {
-  if (props.newsData) {
-      const newArray = props.newsData.map((item: any) => {
+const NewsPageContent = (props: any) => {
+  console.log("NewsPageContent props: ", props);
+  if (props.data) {
+      const newArray = props.data.map((item: any) => {
         item.id = createIdFromTitle(item.title);
 
         return item;
