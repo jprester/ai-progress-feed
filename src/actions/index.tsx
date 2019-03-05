@@ -2,7 +2,14 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 
 import { getTopHeadlines, searchAllArticles } from '../services/apiService';
-import { FETCH_NEWS, GET_SEARCH_RESULTS, GET_NEWS_ARTICLES, UPDATE_SEARCH_TEXT, CLEAR_SEARCH_RESULTS } from './types';
+import {
+  CLEAR_SEARCH_RESULTS,
+  FETCH_NEWS,
+  GET_NEWS_ARTICLES,
+  GET_SEARCH_RESULTS,
+  SHOW_MORE_ITEMS,
+  UPDATE_SEARCH_TEXT,
+} from './types';
 
 export const startNewsFetch = () => (dispatch: Dispatch) =>
   getTopHeadlines()
@@ -25,6 +32,10 @@ export const updateSearchText = (text: string) => ({
 
 export const clearSearchResults = () => ({
   type: CLEAR_SEARCH_RESULTS,
+});
+
+export const showMoreItems = () => ({
+  type: SHOW_MORE_ITEMS,
 });
 
 export const fetchSearchData = (searchQuery: string) => (dispatch: any) =>

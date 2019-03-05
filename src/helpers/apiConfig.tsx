@@ -17,3 +17,4 @@ export const COUNTRY = {
   US: 'us',
 };
 export const VERSION = 'V2';
+export const MAX_RESULTS = 100;

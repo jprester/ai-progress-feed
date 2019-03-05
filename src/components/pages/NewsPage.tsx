@@ -11,7 +11,6 @@ interface IExtendedNewsItemProps {
 }
 
 const NewsPageContent = (props: any) => {
-  console.log("NewsPageContent props: ", props);
   if (props.data) {
       const newArray = props.data.map((item: any) => {
         item.id = createIdFromTitle(item.title);

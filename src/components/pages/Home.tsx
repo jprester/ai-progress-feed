@@ -1,25 +1,33 @@
 import React from 'react';
 
-import NewsList from '../widgets/NewsList/NewsList';
 import SearchInputContainer from '../../containers/SearchInputContainer';
 import CategorySelector from '../widgets/CategorySelector/CategorySelector';
+import NewsList from '../widgets/NewsList/NewsList';
 
 interface IHomePageProps {
   historyData: {
     match: {};
   };
   newsData: {};
+  newsListNumber: number;
+  clearSearchResults: any;
 }
 
-const Home: React.FC<IHomePageProps> = (props) => {
-  return (
-    <div className="home-page">
-      <SearchInputContainer {...props} />
-      <CategorySelector />
-      <h1>News</h1>
-      <NewsList data={props.newsData} {...props}/>
-    </div>
-  );
+class Home extends React.Component<IHomePageProps> {
+  public componentWillMount() {
+    this.props.clearSearchResults();
+  }
+
+  public render() {
+    return (
+      <div className="home-page">
+        <SearchInputContainer {...this.props} />
+        <CategorySelector />
+        <h1>News</h1>
+        <NewsList data={this.props.newsData} listCount={this.props.newsListNumber} {...this.props}/>
+      </div>
+    );
+  }
 };
 
 export default Home;

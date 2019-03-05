@@ -1,11 +1,8 @@
 import React from 'react';
 
-import { updateSearchText, clearSearchResults } from '../../../actions/';
 import { connect } from 'react-redux';
 
 const SearchInput = (props: any) => {
-  console.log("search props: ", props);
-
   return(
     <div className="search-input-container">
       <input type="text" placeholder="search" className="search-input" onChange={(event) => onChangeValueInput(event, props)} value={props.searchQuery || ''} onKeyPress={(event) => onSearchKeypress(event, props)}/>
@@ -40,9 +37,4 @@ function onClickSearchButton(props: any) {
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-  updateSearchText: (text: string) => dispatch(updateSearchText(text)),
-  clearSearchResults: () => dispatch(clearSearchResults(),)
-});
-
-export default connect(null, mapDispatchToProps)(SearchInput);
+export default SearchInput;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import NewsPageContainer from '../containers/NewsPageContainer';
-import About from './pages/About';
 import Home from '../containers/HomePageContainer';
+import NewsPageContainer from '../containers/NewsPageContainer';
 import SearchResultsContainer from '../containers/SearchResultsContainer';
+import About from './pages/About';
 
 const Routes = () => (
   <div className="main-container">
