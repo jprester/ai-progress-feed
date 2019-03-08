@@ -1,19 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { clearSearchResults, fetchSearchData } from '../actions/';
+import { clearData, fetchSearchData, startNewsFetch } from '../actions/';
 import Home from '../components/pages/Home';
 
-interface IHomePageState {
-  newsData: [];
-  newsListNumber: number;
-}
-
 const mapDispatchToProps = (dispatch: any) => ({
-  clearSearchResults: () => dispatch(clearSearchResults()),
+  clearData: () => dispatch(clearData()),
+  startNewsFetch: () => dispatch(startNewsFetch()),
 });
 
-const mapStateToProps = (state: IHomePageState) => {
+const mapStateToProps = (state: any) => {
   return {
     newsData: state.newsData,
     newsListNumber: state.newsListNumber,

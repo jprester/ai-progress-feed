@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { clearSearchResults, updateSearchText } from '../actions/';
+import { clearData, updateSearchText } from '../actions/';
 import SearchInput from '../components/widgets/SearchInput/SearchInput';
 
 const mapStateToProps = (state: any) => {
@@ -12,7 +12,7 @@ const mapStateToProps = (state: any) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  clearSearchResults: () => dispatch(clearSearchResults()),
+  clearData: () => dispatch(clearData()),
   updateSearchText: (text: string) => dispatch(updateSearchText(text)),
 });
 

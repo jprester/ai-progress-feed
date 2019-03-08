@@ -2,8 +2,8 @@ import axios from 'axios';
 
 import { API_KEY, CATEGORY, COUNTRY, HOST, MAX_RESULTS, VERSION } from '../helpers/apiConfig';
 
-export async function getTopHeadlines(country = COUNTRY.US, category = CATEGORY.BUSINESS, pageSize = MAX_RESULTS) {
-  const url = `${HOST}/${VERSION}/top-headlines?country=${country}&category=${category}&pageSize=${pageSize}&apiKey=${API_KEY}`;
+export async function getTopHeadlines(category = CATEGORY.ALL, country = COUNTRY.US, pageSize = MAX_RESULTS) {
+  const url = `${HOST}/${VERSION}/top-headlines?country=${country}&pageSize=${pageSize}&category=${category}&apiKey=${API_KEY}`;
 
   return axios.get(url, {
     headers: {

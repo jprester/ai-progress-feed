@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 
+import { CATEGORY } from '../helpers/apiConfig';
 import { getTopHeadlines, searchAllArticles } from '../services/apiService';
 import {
-  CLEAR_SEARCH_RESULTS,
+  CLEAR_DATA,
   FETCH_NEWS,
   GET_NEWS_ARTICLES,
   GET_SEARCH_RESULTS,
@@ -11,14 +12,15 @@ import {
   UPDATE_SEARCH_TEXT,
 } from './types';
 
-export const startNewsFetch = () => (dispatch: Dispatch) =>
-  getTopHeadlines()
+export const startNewsFetch = (category: string = CATEGORY.GENERAL) => (dispatch: Dispatch) => {
+  getTopHeadlines(category)
     .then((response: {}) => {
       dispatch(getNewsArticles(response));
     })
     .catch((error) => {
       console.warn(error);
     });
+};
 
 export const getNewsArticles = (response: {}) => ({
   payload: response,
@@ -30,8 +32,8 @@ export const updateSearchText = (text: string) => ({
   type: UPDATE_SEARCH_TEXT,
 });
 
-export const clearSearchResults = () => ({
-  type: CLEAR_SEARCH_RESULTS,
+export const clearData = () => ({
+  type: CLEAR_DATA,
 });
 
 export const showMoreItems = () => ({

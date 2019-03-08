@@ -1,4 +1,11 @@
-import { GET_NEWS_ARTICLES, GET_SEARCH_RESULTS, UPDATE_SEARCH_TEXT, CLEAR_SEARCH_RESULTS, SHOW_MORE_ITEMS } from '../actions/types';
+import {
+  CLEAR_DATA,
+  GET_NEWS_ARTICLES,
+  GET_SEARCH_RESULTS,
+  SHOW_MORE_ITEMS,
+  UPDATE_SEARCH_TEXT,
+} from '../actions/types';
+import { CATEGORY } from '../helpers/apiConfig';
 
 interface IState {
   newsData: number[];
@@ -34,9 +41,10 @@ export default (state: IState = INITIAL_STATE, action: any) => {
         searchData: action.payload.data.articles,
       };
 
-    case CLEAR_SEARCH_RESULTS:
+    case CLEAR_DATA:
       return {
         ...state,
+        newsData: [],
         newsListNumber: 10,
         searchData: [],
       };

@@ -1,6 +1,7 @@
 export const API_KEY = '3e9d10a5355d406499cc8b81f3999d54';
 export const HOST = 'https://newsapi.org/';
 export const CATEGORY = {
+  ALL: 'all',
   BUSINESS: 'business',
   ENTERTAINMENT: 'entertainment',
   GENERAL: 'general',

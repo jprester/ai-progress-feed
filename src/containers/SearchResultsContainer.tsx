@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { fetchSearchData } from '../actions/';
 import SearchResultsPage from '../components/pages/SearchResultsPage';
 
-interface IHomePageState {
+interface ISearchResultsState {
   newsListNumber: number;
   searchData: [];
   searchQuery: '';
 }
 
-const mapStateToProps = (state: IHomePageState) => {
+const mapStateToProps = (state: ISearchResultsState) => {
   return {
     newsListNumber: state.newsListNumber,
     searchData: state.searchData,
