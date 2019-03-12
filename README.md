@@ -1,7 +1,7 @@
-# Narrative-organizr
+# simple-news-getter
 
 ## Description
-Narrative-organizr is an app for organizing data various news sources like Twitter or RSS in the compact UI containers that enables users to follow customized narratives.
+App that collects the news from various media sources. Made with React.js, Redux and Typescript.
 
 
 ## Technical overview
