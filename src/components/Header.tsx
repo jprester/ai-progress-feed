@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { CATEGORY } from '../helpers/apiConfig';
+import CategoryNavigation from './widgets/CategoryNavigation/CategoryNavigation';
+
 const Header = () => (
   <div className="header-container">
     <ul className="navigation">
@@ -11,6 +14,8 @@ const Header = () => (
         <Link to="/about">About</Link>
       </li>
     </ul>
+    <hr />
+    <CategoryNavigation data={CATEGORY}/>
   </div>
 );
 

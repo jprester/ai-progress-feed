@@ -16,11 +16,8 @@ interface IHomePageProps {
 }
 
 class Home extends React.Component<IHomePageProps> {
-  public componentWillMount() {
-    this.props.clearData();
-  }
-
   public componentDidMount() {
+    this.props.clearData();
     this.props.startNewsFetch();
   }
 
@@ -28,7 +25,6 @@ class Home extends React.Component<IHomePageProps> {
     return (
       <div className="home-page">
         <SearchInputContainer {...this.props} />
-        <CategoryNavigation data={CATEGORY}/>
         <h1>News</h1>
         <NewsList data={this.props.newsData} listCount={this.props.newsListNumber} {...this.props}/>
       </div>
