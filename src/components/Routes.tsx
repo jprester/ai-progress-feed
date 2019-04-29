@@ -8,35 +8,37 @@ import SearchResultsContainer from '../containers/SearchResultsContainer';
 import About from './pages/About';
 import ErrorPage from './pages/ErrorPage';
 
-const Routes = () => (
-  <div className="main-container">
-    <Switch>
-      <Route
-        exact
-        path="/"
-        render={(history) => <Home historyData={history} />}
-      />
-      <Route
-        path="/search/:id"
-        render={(history) => <SearchResultsContainer historyData={history} />}
-      />
-      <Route
-        path="/news/:id"
-        component={NewsPageContainer}
-      />
-      <Route
-        path="/category/:category"
-        render={(history) => <CategoryPageContainer historyData={history} />}
-      />
-      <Route
-        path="/about"
-        component={About}
-      />
-      <Route
-        component={ErrorPage}
-      />
-    </Switch>
-  </div>
-);
+const Routes = (props: any) => {
+  return (
+    <div className="main-container">
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(history) => <Home historyData={history} />}
+        />
+        <Route
+          path="/search/:id"
+          render={(history) => <SearchResultsContainer historyData={history} />}
+        />
+        <Route
+          path="/news/:id"
+          component={NewsPageContainer}
+        />
+        <Route
+          path="/category/:category"
+          render={(history) => <CategoryPageContainer historyData={history} />}
+        />
+        <Route
+          path="/about"
+          component={About}
+        />
+        <Route
+          component={ErrorPage}
+        />
+      </Switch>
+    </div>
+  );
+};
 
 export default Routes;

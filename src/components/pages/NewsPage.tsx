@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 import { createIdFromTitle } from '../../helpers/utils';
 
@@ -11,7 +12,7 @@ interface IExtendedNewsItemProps {
 }
 
 const NewsPageContent = (props: any) => {
-  if (props.data) {
+  if (props.data && props.data.length) {
       const newArray = props.data.map((item: any) => {
         item.id = createIdFromTitle(item.title);
 
@@ -19,6 +20,10 @@ const NewsPageContent = (props: any) => {
       });
 
       const newsObject = newArray.find((item: IExtendedNewsItemProps) => item.id === props.match.params.id) || {};
+
+      if (_.isEmpty(newsObject)) {
+        return <div>Sorry. Couldnt find the news article.</div>;
+      }
 
       return (
         <div>

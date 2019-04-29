@@ -8,6 +8,7 @@ import {
   FETCH_NEWS,
   GET_NEWS_ARTICLES,
   GET_SEARCH_RESULTS,
+  SET_CATEGORY,
   SHOW_MORE_ITEMS,
   UPDATE_SEARCH_TEXT,
 } from './types';
@@ -38,6 +39,11 @@ export const clearData = () => ({
 
 export const showMoreItems = () => ({
   type: SHOW_MORE_ITEMS,
+});
+
+export const setCategory = (category: string) => ({
+  payload: category,
+  type: SET_CATEGORY,
 });
 
 export const fetchSearchData = (searchQuery: string) => (dispatch: any) =>

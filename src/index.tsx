@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+// import AppContainer from './containers/AppContainer';
 import App from './App';
 import './index.css';
 import Root from './Root';

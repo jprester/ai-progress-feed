@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import _ from 'lodash';
 
 import SearchInputContainer from '../../containers/SearchInputContainer';
 import CategoryNavigation from '../widgets/CategoryNavigation/CategoryNavigation';
@@ -9,27 +10,32 @@ interface IHomePageProps {
   historyData: {
     match: {};
   };
-  newsData: {};
+  newsData: [];
   newsListNumber: number;
   startNewsFetch: any;
   clearData: any;
+  category: string;
+  setCategory: any;
 }
 
-class Home extends React.Component<IHomePageProps> {
-  public componentDidMount() {
-    this.props.clearData();
-    this.props.startNewsFetch();
-  }
+const Home = (props: IHomePageProps) => {
+  useEffect(() => {
+    const newsData = props.newsData || [];
 
-  public render() {
-    return (
-      <div className="home-page">
-        <SearchInputContainer {...this.props} />
-        <h1>News</h1>
-        <NewsList data={this.props.newsData} listCount={this.props.newsListNumber} {...this.props}/>
-      </div>
-    );
-  }
+    if (props.category || !newsData.length) {
+      props.clearData();
+      props.setCategory();
+      props.startNewsFetch();
+    }
+  }, []);
+
+  return (
+    <div className="home-page">
+      <SearchInputContainer historyData={props.historyData}/>
+      <h1>News</h1>
+      <NewsList data={props.newsData} listCount={props.newsListNumber} {...props}/>
+    </div>
+  );
 };
 
 export default Home;

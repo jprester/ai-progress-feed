@@ -10,15 +10,17 @@ interface ICategoryPageProps {
       };
     };
   };
-  newsData: {};
+  newsData: [];
   newsListNumber: number;
   startNewsFetch: any;
   clearData: any;
+  setCategory: any;
 }
 
 class CategoryPage extends React.Component<ICategoryPageProps> {
   public componentDidMount() {
     this.props.clearData();
+    this.props.setCategory(this.props.historyData.match.params.category);
     this.props.startNewsFetch(this.props.historyData.match.params.category);
   }
 

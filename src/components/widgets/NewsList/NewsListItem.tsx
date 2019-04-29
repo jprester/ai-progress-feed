@@ -15,7 +15,7 @@ const NewsItem: React.FC<INewsListItemProps> = (props) => (
   <li>
     {props.title}, <br />
     {props.publishedAt}, <br />
-    <Link to={`/news${'/' + createIdFromTitle(props.title)}`}>Click</Link>
+    <Link to={`/news/${createIdFromTitle(props.title)}`}>Click</Link>
     <hr />
   </li>
 );

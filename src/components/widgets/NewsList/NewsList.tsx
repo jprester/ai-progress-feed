@@ -33,7 +33,7 @@ const NewsList: React.FC<INewsListProps> = (props) => {
       <ul>
         {
           listNumber.map((item: any) => {
-            return <NewsListItem key={ createIdFromTitle(item.title) } { ...item } match={props.historyData.match} />;
+            return <NewsListItem key={ createIdFromTitle(item.title) } { ...item } />;
           })
         }
       </ul>
