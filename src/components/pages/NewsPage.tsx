@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
+import Loader from '../common/Loader';
 import { createIdFromTitle } from '../../helpers/utils';
 
 interface IExtendedNewsItemProps {
@@ -27,7 +28,7 @@ const NewsPageContent = (props: any) => {
 
       return (
         <div>
-          <h3>{newsObject.title}</h3>
+          <h2 className="page-title">{newsObject.title}</h2>
           <h5>{newsObject.description}</h5>
           <p>{newsObject.content}</p>
           <p><a href={newsObject.url}>{newsObject.url}</a></p>
@@ -35,9 +36,7 @@ const NewsPageContent = (props: any) => {
       );
   } else {
       return (
-        <div>
-          <p>loading</p>
-        </div>
+        <Loader />
       );
   }
 };

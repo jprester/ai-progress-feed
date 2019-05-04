@@ -12,11 +12,8 @@ interface INewsListItemProps {
 }
 
 const NewsItem: React.FC<INewsListItemProps> = (props) => (
-  <li>
-    {props.title}, <br />
-    {props.publishedAt}, <br />
-    <Link to={`/news/${createIdFromTitle(props.title)}`}>Click</Link>
-    <hr />
+  <li className="news-list-item"> 
+    <Link to={`/news/${createIdFromTitle(props.title)}`}>{props.title}</Link>
   </li>
 );
 

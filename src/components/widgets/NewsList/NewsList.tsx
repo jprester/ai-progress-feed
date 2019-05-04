@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { showMoreItems } from '../../../actions/';
 import { createIdFromTitle } from '../../../helpers/utils';
 import NewsListItem from './NewsListItem';
+import Loader from '../../common/Loader';
 
 interface INewsListProps {
   historyData: {
@@ -23,22 +24,23 @@ function onShowMoreButtonClick(event: any, props: any) {
 
 const NewsList: React.FC<INewsListProps> = (props) => {
   if (!props || !Array.isArray(props.data) || !props.data.length) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   const listNumber = props.data.slice(0, props.listCount) || [];
 
   return (
-    <div>
-      <ul>
+    <div className="news-list-container">
+      <ul className="news-list">
         {
           listNumber.map((item: any) => {
             return <NewsListItem key={ createIdFromTitle(item.title) } { ...item } />;
           })
         }
       </ul>
-
-      <button onClick={(event) => onShowMoreButtonClick(event, props)}>Show More</button>
+      <div className="show-more-button-container">
+        <button className="show-more-button" onClick={(event) => onShowMoreButtonClick(event, props)}>Show More</button>
+      </div>
     </div>
   );
 };

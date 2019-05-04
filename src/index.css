@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +9,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Open Sans", sans-serf;
 }
 
 code {
@@ -17,4 +24,13 @@ code {
 div,ul,li,ol,td,tr,p,header,footer,section,h1,h2,h3,h4,h5,h6 {
   margin: 0;
   padding: 0;
+}
+
+a, a:hover, a:focus, a:visited {
+  color: #333333;
+  text-decoration: none;
+}
+
+button:focus {
+  outline: 0;
 }

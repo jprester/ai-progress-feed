@@ -3,6 +3,7 @@ import {
   GET_NEWS_ARTICLES,
   GET_SEARCH_RESULTS,
   SET_CATEGORY,
+  SHOW_MENU,
   SHOW_MORE_ITEMS,
   UPDATE_SEARCH_TEXT,
 } from '../actions/types';
@@ -15,6 +16,7 @@ interface IState {
 
 const INITIAL_STATE = {
   category: '',
+  menuVisible: false,
   newsData: [],
   newsListNumber: 10,
   searchData: [],
@@ -52,11 +54,16 @@ export default (state = INITIAL_STATE, action: any) => {
     case CLEAR_DATA:
       return {
         ...state,
+        menuVisible: false,
         newsData: [],
         newsListNumber: 10,
         searchData: [],
       };
-
+    case SHOW_MENU:
+      return {
+        ...state,
+        menuVisible: action.payload,
+      };
     case SHOW_MORE_ITEMS:
       return {
         ...state,

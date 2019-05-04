@@ -15,13 +15,19 @@ interface ICategoryPageProps {
   startNewsFetch: any;
   clearData: any;
   setCategory: any;
+  showMenu: any;
 }
 
 class CategoryPage extends React.Component<ICategoryPageProps> {
   public componentDidMount() {
     this.props.clearData();
+    this.props.showMenu(false);
     this.props.setCategory(this.props.historyData.match.params.category);
     this.props.startNewsFetch(this.props.historyData.match.params.category);
+  }
+
+  public componentWillUnmount() {
+    this.props.showMenu(false);
   }
 
   public componentDidUpdate(prevProps: any) {
@@ -34,7 +40,7 @@ class CategoryPage extends React.Component<ICategoryPageProps> {
   public render() {
     return (
       <div className="category-page">
-        <h1>{this.props.historyData.match.params.category}</h1>
+        <h2 className="page-title">{this.props.historyData.match.params.category}</h2>
         <NewsList data={this.props.newsData} listCount={this.props.newsListNumber} {...this.props}/>
       </div>
     );

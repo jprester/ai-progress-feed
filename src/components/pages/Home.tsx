@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import _ from 'lodash';
 
-import SearchInputContainer from '../../containers/SearchInputContainer';
 import CategoryNavigation from '../widgets/CategoryNavigation/CategoryNavigation';
 import NewsList from '../widgets/NewsList/NewsList';
 import { CATEGORY } from '../../helpers/apiConfig';
@@ -31,8 +30,7 @@ const Home = (props: IHomePageProps) => {
 
   return (
     <div className="home-page">
-      <SearchInputContainer historyData={props.historyData}/>
-      <h1>News</h1>
+      <h2 className="page-title">News</h2>
       <NewsList data={props.newsData} listCount={props.newsListNumber} {...props}/>
     </div>
   );

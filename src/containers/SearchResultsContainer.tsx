@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchSearchData } from '../actions/';
+import { fetchSearchData, showMenu } from '../actions/';
 import SearchResultsPage from '../components/pages/SearchResultsPage';
 
 interface ISearchResultsState {
@@ -20,6 +20,7 @@ const mapStateToProps = (state: ISearchResultsState) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   fetchSearchData: (text: string) => dispatch(fetchSearchData(text)),
+  showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResultsPage);

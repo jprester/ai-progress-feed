@@ -9,6 +9,7 @@ import {
   GET_NEWS_ARTICLES,
   GET_SEARCH_RESULTS,
   SET_CATEGORY,
+  SHOW_MENU,
   SHOW_MORE_ITEMS,
   UPDATE_SEARCH_TEXT,
 } from './types';
@@ -44,6 +45,12 @@ export const showMoreItems = () => ({
 export const setCategory = (category: string) => ({
   payload: category,
   type: SET_CATEGORY,
+});
+
+export const showMenu = (isVisible: boolean) => ({
+  payload: isVisible,
+  type: SHOW_MENU,
+
 });
 
 export const fetchSearchData = (searchQuery: string) => (dispatch: any) =>

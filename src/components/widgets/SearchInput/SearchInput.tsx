@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-
 const SearchInput = (props: any) => {
   return(
     <div className="search-input-container">
@@ -22,7 +20,8 @@ function onSearchKeypress(event: any, props: any) {
   if (event.charCode === 13 && props.searchQuery && props.searchQuery.length > 2) {
     props.updateSearchText('');
     props.clearData();
-    props.historyData.history.push(`/search/${props.searchQuery}`);
+    props.setCategory();
+    props.history.push(`/search/${props.searchQuery}`);
   }
 }
 
@@ -36,7 +35,8 @@ function onClickSearchButton(props: any) {
   if (props.searchQuery && props.searchQuery.length > 2) {
     props.updateSearchText('');
     props.clearData();
-    props.historyData.history.push(`/search/${props.searchQuery}`);
+    props.setCategory();
+    props.history.push(`/search/${props.searchQuery}`);
   }
 }
 

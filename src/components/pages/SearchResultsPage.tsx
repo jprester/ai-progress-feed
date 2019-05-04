@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import NewsList from '../widgets/NewsList/NewsList';
+import Loader from '../common/Loader';
 
 interface ISearchPageProps {
   historyData: {
@@ -16,13 +17,13 @@ const SearchPage: React.FC<ISearchPageProps> = (props: any) => {
     props.fetchSearchData(props.historyData.match.params.id);
 
     return (
-      <div>Loading..</div>
+      <Loader />
     );
   }
 
   return (
     <div className="search-page">
-      <h1>Search Results</h1>
+      <h2 className="page-title">Search Results</h2>
       <NewsList data={props.searchData} listCount={props.newsListNumber} {...props} />
     </div>
   );
