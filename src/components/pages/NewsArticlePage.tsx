@@ -23,7 +23,7 @@ const NewsPageContent = (props: any) => {
       const newsObject = newArray.find((item: IExtendedNewsItemProps) => item.id === props.match.params.id) || {};
 
       if (_.isEmpty(newsObject)) {
-        return <div>Sorry. Couldnt find the news article.</div>;
+        return <div>Sorry. Could not find the news article.</div>;
       }
 
       return (
@@ -34,11 +34,10 @@ const NewsPageContent = (props: any) => {
           <p className="news-page-url"><a href={newsObject.url}>{newsObject.url}</a></p>
         </div>
       );
-  } else {
-      return (
-        <Loader />
-      );
   }
+
+  return <Loader />;
+
 };
 
 export default NewsPageContent;

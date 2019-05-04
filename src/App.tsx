@@ -24,12 +24,7 @@ class App extends React.Component<IAppProps> {
   public componentDidMount() {
     this.props.clearData();
     this.props.setCategory();
-    this.props.showMenu(false);
     this.props.startNewsFetch();
-  }
-
-  public componentWillUnmount() {
-    this.props.showMenu(false);
   }
 
   public render() {

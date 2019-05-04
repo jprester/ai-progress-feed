@@ -21,13 +21,8 @@ interface ICategoryPageProps {
 class CategoryPage extends React.Component<ICategoryPageProps> {
   public componentDidMount() {
     this.props.clearData();
-    this.props.showMenu(false);
     this.props.setCategory(this.props.historyData.match.params.category);
     this.props.startNewsFetch(this.props.historyData.match.params.category);
-  }
-
-  public componentWillUnmount() {
-    this.props.showMenu(false);
   }
 
   public componentDidUpdate(prevProps: any) {

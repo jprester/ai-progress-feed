@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import NewsPage from '../components/pages/NewsPage';
+import NewsArticlePage from '../components/pages/NewsArticlePage';
 
 interface INewsPageState {
   newsData: [];
@@ -17,4 +17,4 @@ const mapStateToProps = (state: INewsPageState) => {
   };
 };
 
-export default connect(mapStateToProps)(NewsPage);
+export default connect(mapStateToProps)(NewsArticlePage);

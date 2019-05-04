@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { CATEGORY } from '../../../helpers/apiConfig';
 
-function createCategoryLinks(data: any) {
+const createCategoryLinks = (data: any) => {
   if (data) {
     return data.map((category: any) => {
       if (category === CATEGORY.ALL) {
@@ -13,7 +13,7 @@ function createCategoryLinks(data: any) {
       return <li key={category}><Link to={'/category/' + category}>{category}</Link></li>;
     });
   }
-}
+};
 
 const CategoryNavigation = (props: any) => {
   if (!props.data) {

@@ -5,7 +5,7 @@ import CategoryPageContainer from '../containers/CategoryPageContainer';
 import Home from '../containers/HomePageContainer';
 import NewsPageContainer from '../containers/NewsPageContainer';
 import SearchResultsContainer from '../containers/SearchResultsContainer';
-import About from './pages/About';
+import About from './pages/AboutPage';
 import ErrorPage from './pages/ErrorPage';
 
 const Routes = (props: any) => {

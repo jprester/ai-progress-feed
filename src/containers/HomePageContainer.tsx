@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { clearData, fetchSearchData, setCategory, startNewsFetch } from '../actions/';
-import Home from '../components/pages/Home';
+import HomePage from '../components/pages/HomePage';
 
 const mapDispatchToProps = (dispatch: any) => ({
   clearData: () => dispatch(clearData()),
@@ -18,4 +18,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
