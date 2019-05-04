@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
 import _ from 'lodash';
+import React, { useEffect } from 'react';
 
+import { CATEGORY } from '../../helpers/apiConfig';
 import CategoryNavigation from '../widgets/CategoryNavigation/CategoryNavigation';
 import NewsList from '../widgets/NewsList/NewsList';
-import { CATEGORY } from '../../helpers/apiConfig';
 
 interface IHomePageProps {
   historyData: {

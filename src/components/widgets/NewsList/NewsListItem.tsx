@@ -12,7 +12,7 @@ interface INewsListItemProps {
 }
 
 const NewsItem: React.FC<INewsListItemProps> = (props) => (
-  <li className="news-list-item"> 
+  <li className="news-list-item">
     <Link to={`/news/${createIdFromTitle(props.title)}`}>{props.title}</Link>
   </li>
 );

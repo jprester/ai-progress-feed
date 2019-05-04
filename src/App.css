@@ -222,6 +222,23 @@ h4.menu-title {
   display: inline-block;
 }
 
+.news-page-description {
+  margin: 5px 0;
+}
+
+h5.news-page-description {
+  font-size: 15px;
+}
+
+.news-page-url {
+  margin-top: 15px;
+}
+
+.news-page-url a {
+  color: #763AEF;
+  font-weight: 400;
+}
+
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }

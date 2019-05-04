@@ -1,5 +1,8 @@
 # simple-news-getter
 
+## App Demo
+Netlify link: https://simple-news-getter.netlify.com/
+
 ## Description
 App that collects the news from various media sources. Made with React.js, Redux and Typescript.
 

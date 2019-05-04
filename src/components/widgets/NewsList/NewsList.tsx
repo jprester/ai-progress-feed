@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import { showMoreItems } from '../../../actions/';
 import { createIdFromTitle } from '../../../helpers/utils';
-import NewsListItem from './NewsListItem';
 import Loader from '../../common/Loader';
+import NewsListItem from './NewsListItem';
 
 interface INewsListProps {
   historyData: {
@@ -34,7 +34,7 @@ const NewsList: React.FC<INewsListProps> = (props) => {
       <ul className="news-list">
         {
           listNumber.map((item: any) => {
-            return <NewsListItem key={ createIdFromTitle(item.title) } { ...item } />;
+            return <NewsListItem key={createIdFromTitle(item.title)} { ...item } />;
           })
         }
       </ul>

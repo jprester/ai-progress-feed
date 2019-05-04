@@ -1,8 +1,8 @@
-import React from 'react';
 import _ from 'lodash';
+import React from 'react';
 
-import Loader from '../common/Loader';
 import { createIdFromTitle } from '../../helpers/utils';
+import Loader from '../common/Loader';
 
 interface IExtendedNewsItemProps {
   id: string;
@@ -29,9 +29,9 @@ const NewsPageContent = (props: any) => {
       return (
         <div>
           <h2 className="page-title">{newsObject.title}</h2>
-          <h5>{newsObject.description}</h5>
-          <p>{newsObject.content}</p>
-          <p><a href={newsObject.url}>{newsObject.url}</a></p>
+          <h5 className="news-page-description">{newsObject.description}</h5>
+          <p className="news-page-content">{newsObject.content}</p>
+          <p className="news-page-url"><a href={newsObject.url}>{newsObject.url}</a></p>
         </div>
       );
   } else {

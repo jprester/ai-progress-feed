@@ -50,8 +50,8 @@ class App extends React.Component<IAppProps> {
 const mapDispatchToProps = (dispatch: any) => ({
   clearData: () => dispatch(clearData()),
   setCategory: (text: string) => dispatch(setCategory(text)),
-  startNewsFetch: () => dispatch(startNewsFetch()),
   showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
+  startNewsFetch: () => dispatch(startNewsFetch()),
 });
 
 const mapStateToProps = (state: any) => {

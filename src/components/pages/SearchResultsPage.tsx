@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import NewsList from '../widgets/NewsList/NewsList';
 import Loader from '../common/Loader';
+import NewsList from '../widgets/NewsList/NewsList';
 
 interface ISearchPageProps {
   historyData: {
@@ -10,6 +10,7 @@ interface ISearchPageProps {
   };
   newsListNumber: number;
   searchData: {};
+  searchQuery: string;
 }
 
 const SearchPage: React.FC<ISearchPageProps> = (props: any) => {

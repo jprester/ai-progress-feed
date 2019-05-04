@@ -14,17 +14,13 @@ const Header = (props: any) => {
           <h1 className="logo"><Link className="header-logo-link" to="/">News Getter</Link></h1>
           <div className="navigation-right">
             <Link className="header-nav-link" to="/about">About</Link>
-            {/* <button
-              className="mobile-menu-button"
-              onClick={() => props.showMenu(props.menuVisible ? false : true)}>
-                  {props.menuVisible ? "hide" : "show"}
-            </button> */}
-            <button className= {props.menuVisible ? "mobile-menu-button change" : "mobile-menu-button"}
+            <button
+              className={props.menuVisible ? 'mobile-menu-button change' : 'mobile-menu-button'}
               onClick={() => props.showMenu(props.menuVisible ? false : true)}
             >
-              <div className="bar1"></div>
-              <div className="bar2"></div>
-              <div className="bar3"></div>
+              <div className="bar1" />
+              <div className="bar2" />
+              <div className="bar3" />
             </button>
           </div>
         </div>
