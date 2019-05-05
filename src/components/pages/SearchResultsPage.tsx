@@ -6,14 +6,19 @@ import NewsList from '../widgets/NewsList/NewsList';
 
 interface ISearchPageProps {
   historyData: {
-    match: {};
+    match: {
+      params: {
+        id: string;
+      };
+    };
   };
   newsListNumber: number;
-  searchData: {};
+  searchData: [];
   searchQuery: string;
+  fetchSearchData: (id: string) => void;
 }
 
-const SearchPage: React.FC<ISearchPageProps> = (props: any) => {
+const SearchPage: React.FC<ISearchPageProps> = (props) => {
   if (!props.searchData || !props.searchData.length) {
     props.fetchSearchData(props.historyData.match.params.id);
 
