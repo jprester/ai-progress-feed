@@ -26,14 +26,19 @@ interface INewsListItemProps {
 }
 
 const createList = (list: INewsListItemProps[]) => (
-  list.map((item: INewsListItemProps) => {
-    const { title } = item;
+  list.map((item: INewsListItemProps, index: any) => {
+    const { title, urlToImage } = item;
+
+    if (title && urlToImage && index === 0) {
+      return <NewsListItem urlToImage={urlToImage} key={title} title={title} />
+    }
 
     if (title) {
-      return <NewsListItem key={title} title={title} />;
-    } else {
-      return <div>Didn't get correct news data</div>;
+      return <NewsListItem key={title} title={title} />
     }
+
+    return <div key={title}>Didn't get correct news data</div>;
+
   })
 );
 

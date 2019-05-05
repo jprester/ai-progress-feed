@@ -12,18 +12,8 @@ interface INewsPageProps {
       id: string;
     };
   };
+  urlToImage: string;
   data: never[];
-}
-
-interface INewsArticleProps {
-  author: any;
-  content: any;
-  description: any;
-  id: any;
-  source: {};
-  publishedAt: any;
-  url: any;
-  title: string;
 }
 
 interface IExtendedNewsItemProps {
@@ -32,6 +22,7 @@ interface IExtendedNewsItemProps {
   description: string;
   content: string;
   url: string;
+  urlToImage: string;
 }
 
 const NewsArticlePage: React.FC<INewsPageProps> = (props) => {
@@ -43,13 +34,14 @@ const NewsArticlePage: React.FC<INewsPageProps> = (props) => {
       const newsObject = newArray.find((item: IExtendedNewsItemProps) => item.id === props.match.params.id) || {};
 
       if (_.isEmpty(newsObject)) {
-        return <div>Sorry. Could not find the news article.</div>;
+        return <div>Sorry. Could not find the news article you are looking for.</div>;
       }
 
       return (
         <div>
           <h2 className="page-title">{newsObject.title}</h2>
           <h5 className="news-page-description">{newsObject.description}</h5>
+          <div><img src={newsObject.urlToImage} className="news-article-image" /></div>
           <p className="news-page-content">{newsObject.content}</p>
           <p className="news-page-url"><a href={newsObject.url}>{newsObject.url}</a></p>
         </div>

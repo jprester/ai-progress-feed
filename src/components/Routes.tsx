@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import CategoryPageContainer from '../containers/CategoryPageContainer';
 import Home from '../containers/HomePageContainer';
-import NewsPageContainer from '../containers/NewsPageContainer';
+import NewsArticlePageContainer from '../containers/NewsArticlePageContainer';
 import SearchResultsContainer from '../containers/SearchResultsContainer';
 import About from './pages/AboutPage';
 import ErrorPage from './pages/ErrorPage';
@@ -23,7 +23,7 @@ const Routes = (props: any) => {
         />
         <Route
           path="/news/:id"
-          component={NewsPageContainer}
+          component={NewsArticlePageContainer}
         />
         <Route
           path="/category/:category"

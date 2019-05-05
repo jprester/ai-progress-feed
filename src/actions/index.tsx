@@ -50,7 +50,6 @@ export const setCategory = (category: string) => ({
 export const showMenu = (isVisible: boolean) => ({
   payload: isVisible,
   type: SHOW_MENU,
-
 });
 
 export const fetchSearchData = (searchQuery: string) => (dispatch: any) =>

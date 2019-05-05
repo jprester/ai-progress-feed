@@ -10,8 +10,17 @@ import {
 import { CATEGORY } from '../helpers/apiConfig';
 
 interface IState {
+  category: string;
+  menuVisible: boolean;
   newsData: number[];
   newsListNumber: number;
+  searchData: number[];
+  searchQuery: string;
+}
+
+interface IAction {
+  type: string;
+  payload: any;
 }
 
 const INITIAL_STATE = {
@@ -23,7 +32,7 @@ const INITIAL_STATE = {
   searchQuery: '',
 };
 
-export default (state = INITIAL_STATE, action: any) => {
+export default (state: IState = INITIAL_STATE, action: IAction) => {
   switch (action.type) {
     case GET_NEWS_ARTICLES:
       return {
