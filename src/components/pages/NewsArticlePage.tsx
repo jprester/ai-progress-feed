@@ -4,6 +4,28 @@ import React from 'react';
 import { createIdFromTitle } from '../../helpers/utils';
 import Loader from '../common/Loader';
 
+interface INewsPageProps {
+  history: [];
+  location: {};
+  match: {
+    params: {
+      id: string;
+    };
+  };
+  data: never[];
+}
+
+interface INewsArticleProps {
+  author: any;
+  content: any;
+  description: any;
+  id: any;
+  source: {};
+  publishedAt: any;
+  url: any;
+  title: string;
+}
+
 interface IExtendedNewsItemProps {
   id: string;
   title: string;
@@ -12,12 +34,10 @@ interface IExtendedNewsItemProps {
   url: string;
 }
 
-const NewsPageContent = (props: any) => {
+const NewsArticlePage: React.FC<INewsPageProps> = (props) => {
   if (props.data && props.data.length) {
       const newArray = props.data.map((item: any) => {
-        item.id = createIdFromTitle(item.title);
-
-        return item;
+        return {id: createIdFromTitle(item.title), ...item};
       });
 
       const newsObject = newArray.find((item: IExtendedNewsItemProps) => item.id === props.match.params.id) || {};
@@ -40,4 +60,4 @@ const NewsPageContent = (props: any) => {
 
 };
 
-export default NewsPageContent;
+export default NewsArticlePage;

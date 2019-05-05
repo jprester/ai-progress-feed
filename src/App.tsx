@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import Footer from './components/common/Footer';
 import Header from './components/common/Header';
 import Routes from './components/Routes';
 
-import { clearData, setCategory, startNewsFetch, showMenu } from './actions/';
+import { clearData, setCategory, showMenu, startNewsFetch } from './actions/';
 
 interface IAppProps {
   history: [];

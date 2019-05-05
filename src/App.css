@@ -83,16 +83,18 @@ h2.page-title {
   background: #763AEF;
   top: 44px;
   width: 100%;
-  -webkit-transition: opacity 2s; /* For Safari 3.1 to 6.0 */
-  transition: opacity .5s;
+  -webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+  transition: opacity 1s;
 }
 
 .mobile-menu.visible {
   opacity: 0.96;
+  z-index: 1;
 }
 
 .mobile-menu.hidden {
   opacity: 0;
+  z-index: -1;
 }
 
 .search-input-container button {

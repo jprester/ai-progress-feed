@@ -1,6 +1,12 @@
 import React from 'react';
 
-const ErrorPage = ({ location }: any) => (
+interface IErrorPageProps {
+   location: {
+      pathname: string;
+   };
+}
+
+const ErrorPage: React.FC<IErrorPageProps> = ({ location }) => (
    <div>
       <h2 className="page-title">No match found for <code>{location.pathname}</code></h2>
    </div>

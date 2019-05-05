@@ -25,7 +25,7 @@ class CategoryPage extends React.Component<ICategoryPageProps> {
     this.props.startNewsFetch(this.props.historyData.match.params.category);
   }
 
-  public componentDidUpdate(prevProps: any) {
+  public componentDidUpdate(prevProps: ICategoryPageProps) {
     if (this.props.historyData.match.params.category !== prevProps.historyData.match.params.category) {
       this.props.clearData();
       this.props.startNewsFetch(this.props.historyData.match.params.category);

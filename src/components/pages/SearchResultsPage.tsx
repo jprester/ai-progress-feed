@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Loader from '../common/Loader';
@@ -19,12 +19,12 @@ interface ISearchPageProps {
 }
 
 const SearchPage: React.FC<ISearchPageProps> = (props) => {
-  if (!props.searchData || !props.searchData.length) {
-    props.fetchSearchData(props.historyData.match.params.id);
+  useEffect(() => {
+      props.fetchSearchData(props.historyData.match.params.id);
+  }, []);
 
-    return (
-      <Loader />
-    );
+  if (!props.searchData || !props.searchData.length) {
+    return <Loader />;
   }
 
   return (

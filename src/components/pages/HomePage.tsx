@@ -17,7 +17,7 @@ interface IHomePageProps {
   setCategory: any;
 }
 
-const Home = (props: IHomePageProps) => {
+const Home: React.FC<IHomePageProps> = (props) => {
   useEffect(() => {
     const newsData = props.newsData || [];
 
