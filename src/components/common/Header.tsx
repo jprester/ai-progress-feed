@@ -6,7 +6,13 @@ import SearchInputContainer from '../../containers/SearchInputContainer';
 import { CATEGORY } from '../../helpers/apiConfig';
 import CategoryNavigation from '../widgets/CategoryNavigation/CategoryNavigation';
 
-const Header = (props: any) => {
+interface IHeaderProps {
+  showMenu: (menuVisible: boolean) => void;
+  menuVisible: boolean;
+  history: [];
+}
+
+const Header = (props: IHeaderProps) => {
   return (
     <div className="header-container">
       <div className="content-wrapper">

@@ -10,36 +10,48 @@ interface INewsListProps {
   historyData: {
     match: {},
   };
-  data: {};
+  data: INewsListItemProps[];
   listCount: number;
+  showMoreItems: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-function onShowMoreButtonClick(event: any, props: any) {
-  if (props.showMoreItems) {
-    setTimeout(() => {
-      props.showMoreItems();
-    }, 500);
-  }
+interface INewsListItemProps {
+  author: string;
+  content: string;
+  publishedAt: string;
+  source: {};
+  title: string;
+  url: string;
+  urlToImage: string;
 }
+
+const createList = (list: INewsListItemProps[]) => (
+  list.map((item: INewsListItemProps) => {
+    const { title } = item;
+
+    if (title) {
+      return <NewsListItem key={title} title={title} />;
+    } else {
+      return <div>Didn't get correct news data</div>;
+    }
+  })
+);
 
 const NewsList: React.FC<INewsListProps> = (props) => {
   if (!props || !Array.isArray(props.data) || !props.data.length) {
     return <Loader />;
   }
 
-  const listNumber = props.data.slice(0, props.listCount) || [];
+  const { data } = props;
+  const listData = data.slice(0, props.listCount);
 
   return (
     <div className="news-list-container">
       <ul className="news-list">
-        {
-          listNumber.map((item: any) => {
-            return <NewsListItem key={createIdFromTitle(item.title)} { ...item } />;
-          })
-        }
+        {createList(listData)}
       </ul>
       <div className="show-more-button-container">
-        <button className="show-more-button" onClick={(event) => onShowMoreButtonClick(event, props)}>Show More</button>
+        <button className="show-more-button" onClick={props.showMoreItems}>Show More</button>
       </div>
     </div>
   );

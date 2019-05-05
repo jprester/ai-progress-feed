@@ -1,6 +1,38 @@
 import React from 'react';
 
-const SearchInput = (props: any) => {
+interface ISearchInputProps {
+  history: string[];
+  searchQuery: any;
+  clearData: () => void;
+  setCategory: (text: string) => void;
+  updateSearchText: (text: string) => void;
+}
+
+const onSearchKeypress = (event: any, props: ISearchInputProps) => {
+  if (event.charCode === 13 && props.searchQuery && props.searchQuery.length > 2) {
+    props.updateSearchText('');
+    props.clearData();
+    props.setCategory('');
+    props.history.push(`/search/${props.searchQuery}`);
+  }
+};
+
+const onChangeValueInput = (event: React.FormEvent<HTMLInputElement>, props: ISearchInputProps) => {
+  const searchText = event.currentTarget.value || '';
+
+  props.updateSearchText(searchText);
+};
+
+const onClickSearchButton = (event: React.FormEvent<HTMLInputElement>, props: ISearchInputProps) => {
+  if (props.searchQuery && props.searchQuery.length > 2) {
+    props.updateSearchText('');
+    props.clearData();
+    props.setCategory('');
+    props.history.push(`/search/${props.searchQuery}`);
+  }
+};
+
+const SearchInput: React.FC<ISearchInputProps> = (props) => {
   return(
     <div className="search-input-container">
       <input
@@ -11,33 +43,9 @@ const SearchInput = (props: any) => {
         value={props.searchQuery || ''}
         onKeyPress={(event) => onSearchKeypress(event, props)}
       />
-      <button className="search-button" onClick={() => onClickSearchButton(props)}>Search</button>
+      <button className="search-button" onClick={(event: any) => onClickSearchButton(event, props)}>Search</button>
     </div>
   );
 };
-
-function onSearchKeypress(event: any, props: any) {
-  if (event.charCode === 13 && props.searchQuery && props.searchQuery.length > 2) {
-    props.updateSearchText('');
-    props.clearData();
-    props.setCategory();
-    props.history.push(`/search/${props.searchQuery}`);
-  }
-}
-
-function onChangeValueInput(event: any, props: any) {
-  const searchText = event.currentTarget.value || '';
-
-  props.updateSearchText(searchText);
-}
-
-function onClickSearchButton(props: any) {
-  if (props.searchQuery && props.searchQuery.length > 2) {
-    props.updateSearchText('');
-    props.clearData();
-    props.setCategory();
-    props.history.push(`/search/${props.searchQuery}`);
-  }
-}
 
 export default SearchInput;

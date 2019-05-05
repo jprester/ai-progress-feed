@@ -10,7 +10,7 @@ import Routes from './components/Routes';
 import { clearData, setCategory, startNewsFetch, showMenu } from './actions/';
 
 interface IAppProps {
-  history: {};
+  history: [];
   newsData: [];
   newsListNumber: number;
   startNewsFetch: any;
@@ -18,6 +18,12 @@ interface IAppProps {
   setCategory: any;
   showMenu: any;
   menuVisible: boolean;
+}
+
+interface IAppState {
+  menuVisible: boolean;
+  newsData: [];
+  newsListNumber: number;
 }
 
 class App extends React.Component<IAppProps> {
@@ -49,7 +55,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   startNewsFetch: () => dispatch(startNewsFetch()),
 });
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IAppState) => {
   return {
     menuVisible: state.menuVisible,
     newsData: state.newsData,

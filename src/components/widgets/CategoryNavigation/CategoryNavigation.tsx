@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 import { CATEGORY } from '../../../helpers/apiConfig';
 
-const createCategoryLinks = (data: any) => {
+interface ICategoryNavigationProps {
+  data: {};
+}
+
+const createCategoryLinks = (data: string[]) => {
   if (data) {
-    return data.map((category: any) => {
+    return data.map((category: string) => {
       if (category === CATEGORY.ALL) {
         return <li key={category}><Link to={'/'}>{category}</Link></li>;
       }
@@ -15,7 +19,7 @@ const createCategoryLinks = (data: any) => {
   }
 };
 
-const CategoryNavigation = (props: any) => {
+const CategoryNavigation = (props: ICategoryNavigationProps) => {
   if (!props.data) {
     return (
     <div className="category-navigation-container">

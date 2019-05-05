@@ -4,7 +4,13 @@ import { connect } from 'react-redux';
 import { clearData, setCategory, showMenu, startNewsFetch } from '../actions/';
 import CategoryPage from '../components/pages/CategoryPage';
 
-const mapStateToProps = (state: any) => {
+interface ICategoryContainerState {
+  category: string;
+  newsData: [];
+  newsListNumber: number;
+}
+
+const mapStateToProps = (state: ICategoryContainerState) => {
   return {
     category: state.category,
     newsData: state.newsData,

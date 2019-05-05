@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 import { clearData, setCategory, updateSearchText } from '../actions/';
 import SearchInput from '../components/widgets/SearchInput/SearchInput';
 
-const mapStateToProps = (state: any) => {
+interface ISearchInputContainerState {
+  newsData: [];
+  searchQuery: string;
+}
+
+const mapStateToProps = (state: ISearchInputContainerState) => {
   return {
     newsData: state.newsData,
     searchQuery: state.searchQuery,

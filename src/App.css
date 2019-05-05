@@ -83,11 +83,16 @@ h2.page-title {
   background: #763AEF;
   top: 44px;
   width: 100%;
-  opacity: 0.93;
+  -webkit-transition: opacity 2s; /* For Safari 3.1 to 6.0 */
+  transition: opacity .5s;
 }
 
 .mobile-menu.visible {
-  display: block;
+  opacity: 0.96;
+}
+
+.mobile-menu.hidden {
+  opacity: 0;
 }
 
 .search-input-container button {
@@ -122,10 +127,6 @@ h4.menu-title {
   color: #ffffff;
   font-weight: 400;
   margin-top: 20px;
-}
-
-.mobile-menu.hidden {
-  display: none;
 }
 
 .mobile-menu>ul {
@@ -250,12 +251,3 @@ h5.news-page-description {
   100% { transform: rotate(360deg); }
 }
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
