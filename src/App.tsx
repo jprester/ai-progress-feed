@@ -18,19 +18,24 @@ interface IAppProps {
   setCategory: any;
   showMenu: any;
   menuVisible: boolean;
+  isFetching: boolean;
 }
 
 interface IAppState {
   menuVisible: boolean;
   newsData: [];
   newsListNumber: number;
+  isFetching: boolean;
 }
 
 class App extends React.Component<IAppProps> {
   public componentDidMount() {
     this.props.clearData();
     this.props.setCategory();
-    this.props.startNewsFetch();
+
+    if (!this.props.isFetching) {
+      this.props.startNewsFetch();
+    }
   }
 
   public render() {
@@ -57,6 +62,7 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 const mapStateToProps = (state: IAppState) => {
   return {
+    isFetching: state.isFetching,
     menuVisible: state.menuVisible,
     newsData: state.newsData,
     newsListNumber: state.newsListNumber,

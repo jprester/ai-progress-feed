@@ -9,18 +9,23 @@ import {
   GET_NEWS_ARTICLES,
   GET_SEARCH_RESULTS,
   SET_CATEGORY,
+  SET_IS_FETCHING_FLAG,
   SHOW_MENU,
   SHOW_MORE_ITEMS,
   UPDATE_SEARCH_TEXT,
 } from './types';
 
 export const startNewsFetch = (category: string = CATEGORY.GENERAL) => (dispatch: Dispatch) => {
+  dispatch(setIsFetchingFlag(true));
   getTopHeadlines(category)
     .then((response: {}) => {
       dispatch(getNewsArticles(response));
     })
     .catch((error) => {
       console.warn(error);
+    })
+    .finally(() => {
+      dispatch(setIsFetchingFlag(false));
     });
 };
 
@@ -50,6 +55,11 @@ export const setCategory = (category: string) => ({
 export const showMenu = (isVisible: boolean) => ({
   payload: isVisible,
   type: SHOW_MENU,
+});
+
+export const setIsFetchingFlag = (isFetching: boolean) => ({
+  payload: isFetching,
+  type: SET_IS_FETCHING_FLAG,
 });
 
 export const fetchSearchData = (searchQuery: string) => (dispatch: any) =>

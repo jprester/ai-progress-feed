@@ -3,6 +3,7 @@ import {
   GET_NEWS_ARTICLES,
   GET_SEARCH_RESULTS,
   SET_CATEGORY,
+  SET_IS_FETCHING_FLAG,
   SHOW_MENU,
   SHOW_MORE_ITEMS,
   UPDATE_SEARCH_TEXT,
@@ -11,6 +12,7 @@ import { CATEGORY } from '../helpers/apiConfig';
 
 interface IState {
   category: string;
+  isFetching: boolean;
   menuVisible: boolean;
   newsData: number[];
   newsListNumber: number;
@@ -25,6 +27,7 @@ interface IAction {
 
 const INITIAL_STATE = {
   category: '',
+  isFetching: false,
   menuVisible: false,
   newsData: [],
   newsListNumber: 10,
@@ -68,11 +71,19 @@ export default (state: IState = INITIAL_STATE, action: IAction) => {
         newsListNumber: 10,
         searchData: [],
       };
+
+    case SET_IS_FETCHING_FLAG:
+      return {
+        ...state,
+        isFetching: action.payload,
+      }
+
     case SHOW_MENU:
       return {
         ...state,
         menuVisible: action.payload,
       };
+
     case SHOW_MORE_ITEMS:
       return {
         ...state,

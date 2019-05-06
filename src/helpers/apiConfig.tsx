@@ -1,4 +1,4 @@
-export const API_KEY = process.env.REACT_APP_COINAPI_KEY;
+export const API_KEY = process.env.REACT_APP_NEWSAPI_KEY;
 export const HOST = 'https://newsapi.org/';
 export const CATEGORY = {
   ALL: 'all',

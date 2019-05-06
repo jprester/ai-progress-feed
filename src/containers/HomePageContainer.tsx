@@ -6,6 +6,7 @@ import HomePage from '../components/pages/HomePage';
 
 interface IHomeContainerState {
   category: string;
+  isFetching: boolean;
   newsData: [];
   newsListNumber: number;
 }
@@ -13,6 +14,7 @@ interface IHomeContainerState {
 const mapStateToProps = (state: IHomeContainerState) => {
   return {
     category: state.category,
+    isFetching: state.isFetching,
     newsData: state.newsData,
     newsListNumber: state.newsListNumber,
   };

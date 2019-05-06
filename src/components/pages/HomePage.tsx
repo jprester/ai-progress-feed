@@ -9,6 +9,7 @@ interface IHomePageProps {
   historyData: {
     match: {};
   };
+  isFetching: boolean;
   newsData: [];
   newsListNumber: number;
   startNewsFetch: any;
@@ -21,9 +22,9 @@ const Home: React.FC<IHomePageProps> = (props) => {
   useEffect(() => {
     const newsData = props.newsData || [];
 
-    if (props.category || !newsData.length) {
+    if (props.isFetching === false) {
       props.clearData();
-      props.setCategory();
+      props.setCategory('');
       props.startNewsFetch();
     }
   }, []);
