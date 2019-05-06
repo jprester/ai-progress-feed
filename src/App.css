@@ -123,7 +123,7 @@ input.search-input::placeholder {
 }
 
 h4.menu-title {
-  font-size: 13px;
+  font-size: 15px;
   text-transform: uppercase;
   margin-top: 10px;
   color: #ffffff;
@@ -152,9 +152,8 @@ h4.menu-title {
 .category-navigation-container ul a {
   color: #ffffff;
   text-transform: capitalize;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
-  font-style: italic;
 }
 
 .category-navigation-container ul a:hover {
@@ -240,7 +239,7 @@ h5.news-page-description {
 
 .news-article-image {
   width: 100%;
-  max-height: 476px;
+  max-height: auto;
 }
 
 .news-page-url {
