@@ -175,7 +175,7 @@ h4.menu-title {
 
 .news-list li .news-list-image {
   width: 100%;
-  max-height: 476px;
+  height: auto;
 }
 
 .news-list li:hover {
