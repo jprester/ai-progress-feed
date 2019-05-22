@@ -1,11 +1,11 @@
 import axios from 'axios';
+import _ from 'lodash';
 import { Dispatch } from 'redux';
 
 import { CATEGORY } from '../helpers/apiConfig';
 import { getTopHeadlines, searchAllArticles } from '../services/apiService';
 import {
   CLEAR_DATA,
-  FETCH_NEWS,
   GET_NEWS_ARTICLES,
   GET_SEARCH_RESULTS,
   SET_CATEGORY,
@@ -18,10 +18,14 @@ import {
 export const startNewsFetch = (category: string = CATEGORY.GENERAL) => (dispatch: Dispatch) => {
   dispatch(setIsFetchingFlag(true));
   getTopHeadlines(category)
-    .then((response: {}) => {
-      dispatch(getNewsArticles(response));
+    .then((response) => {
+      const articles = _.get(response, ['data', 'articles'], []);
+
+      if (articles.length) {
+        dispatch(getNewsArticles(articles));
+      }
     })
-    .catch((error) => {
+    .catch((error: {}) => {
       console.warn(error);
     })
     .finally(() => {
@@ -29,8 +33,8 @@ export const startNewsFetch = (category: string = CATEGORY.GENERAL) => (dispatch
     });
 };
 
-export const getNewsArticles = (response: {}) => ({
-  payload: response,
+export const getNewsArticles = (articles: []) => ({
+  payload: articles,
   type: GET_NEWS_ARTICLES,
 });
 
@@ -64,14 +68,18 @@ export const setIsFetchingFlag = (isFetching: boolean) => ({
 
 export const fetchSearchData = (searchQuery: string) => (dispatch: any) =>
   searchAllArticles(searchQuery)
-    .then((response: any) => {
-      dispatch(getSearchResults(response));
+    .then((response) => {
+      const articles = _.get(response, ['data', 'articles'], []);
+
+      if (articles) {
+        dispatch(getSearchResults(articles));
+      }
     })
     .catch((error) => {
       console.warn(error);
     });
 
-export const getSearchResults = (response: {}) => ({
-  payload: response,
+export const getSearchResults = (articles: []) => ({
+  payload: articles,
   type: GET_SEARCH_RESULTS,
 });

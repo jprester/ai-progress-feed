@@ -40,7 +40,7 @@ export default (state: IState = INITIAL_STATE, action: IAction) => {
     case GET_NEWS_ARTICLES:
       return {
         ...state,
-        newsData: action.payload.data.articles,
+        newsData: action.payload,
         newsListNumber: 10,
       };
 
@@ -60,7 +60,7 @@ export default (state: IState = INITIAL_STATE, action: IAction) => {
       return {
         ...state,
         newsListNumber: 10,
-        searchData: action.payload.data.articles,
+        searchData: action.payload,
       };
 
     case CLEAR_DATA:
@@ -76,7 +76,7 @@ export default (state: IState = INITIAL_STATE, action: IAction) => {
       return {
         ...state,
         isFetching: action.payload,
-      }
+      };
 
     case SHOW_MENU:
       return {
