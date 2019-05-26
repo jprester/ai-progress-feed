@@ -4,6 +4,7 @@ import { showMoreItems } from '../../../actions/';
 import { createIdFromTitle } from '../../../helpers/utils';
 import Loader from '../../common/Loader';
 import NewsListItem from './NewsListItem';
+import ShowMoreButton from './ShowMoreButton';
 
 interface INewsListProps {
   historyData: {
@@ -11,7 +12,7 @@ interface INewsListProps {
   };
   data: INewsListItemProps[];
   listCount: number;
-  showMoreItems: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  showMoreItems: () => void;
 }
 
 interface INewsListItemProps {
@@ -41,13 +42,19 @@ const createList = (list: INewsListItemProps[]) => (
   })
 );
 
+const displayMoreButton = (expandList: any, listCount: number, dataCount: number) => {
+  if (expandList && (listCount < dataCount)) {
+    return <button className="show-more-button" onClick={expandList}>Show More</button>
+  }
+};
+
 const NewsList: React.FC<INewsListProps> = (props) => {
   if (!props || !Array.isArray(props.data) || !props.data.length) {
     return <Loader />;
   }
 
-  const { data } = props;
-  const listData = data.slice(0, props.listCount);
+  const { data, listCount } = props;
+  const listData = data.slice(0, listCount);
 
   return (
     <div className="news-list-container">
@@ -55,7 +62,7 @@ const NewsList: React.FC<INewsListProps> = (props) => {
         {createList(listData)}
       </ul>
       <div className="show-more-button-container">
-        <button className="show-more-button" onClick={props.showMoreItems}>Show More</button>
+        {listCount < data.length && <ShowMoreButton showMoreItems={props.showMoreItems} />}
       </div>
     </div>
   );
