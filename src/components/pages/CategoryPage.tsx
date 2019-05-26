@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NewsList from '../widgets/NewsList/NewsList';
+import NewsListContainer from '../../containers/NewsListContainer';
 
 interface ICategoryPageProps {
   historyData: {
@@ -36,7 +36,7 @@ class CategoryPage extends React.Component<ICategoryPageProps> {
     return (
       <div className="category-page">
         <h2 className="page-title">{this.props.historyData.match.params.category}</h2>
-        <NewsList data={this.props.newsData} listCount={this.props.newsListNumber} {...this.props}/>
+        <NewsListContainer data={this.props.newsData} listCount={this.props.newsListNumber} {...this.props}/>
       </div>
     );
   }

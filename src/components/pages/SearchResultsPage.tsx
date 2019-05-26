@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
+import NewsListContainer from '../../containers/NewsListContainer';
 import Loader from '../common/Loader';
-import NewsList from '../widgets/NewsList/NewsList';
 
 interface ISearchPageProps {
   historyData: {
@@ -30,7 +30,11 @@ const SearchPage: React.FC<ISearchPageProps> = (props) => {
   return (
     <div className="search-page">
       <h2 className="page-title">Search Results</h2>
-      <NewsList data={props.searchData} listCount={props.newsListNumber} {...props} />
+      <NewsListContainer
+        data={props.searchData}
+        listCount={props.newsListNumber}
+        {...props}
+      />
     </div>
   );
 };

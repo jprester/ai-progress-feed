@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
 
 import { showMoreItems } from '../../../actions/';
 import { createIdFromTitle } from '../../../helpers/utils';
@@ -34,7 +33,7 @@ const createList = (list: INewsListItemProps[]) => (
     }
 
     if (title) {
-      return <NewsListItem key={title} title={title} />
+      return <NewsListItem key={title} title={title} />;
     }
 
     return <div key={title}>Didn't get correct news data</div>;
@@ -62,8 +61,4 @@ const NewsList: React.FC<INewsListProps> = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch: any) => ({
-  showMoreItems: () => dispatch(showMoreItems()),
-});
-
-export default connect(null, mapDispatchToProps)(NewsList);
+export default NewsList;
