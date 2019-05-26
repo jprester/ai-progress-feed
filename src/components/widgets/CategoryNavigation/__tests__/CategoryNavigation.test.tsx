@@ -17,5 +17,7 @@ describe('CategoryNavigation', () => {
 
     expect(wrapped.find('li').length).toEqual(0);
     expect(wrapped.find('div.category-navigation-container p').text()).toContain('No category links available');
+
+    wrapped.unmount();
   });
 });

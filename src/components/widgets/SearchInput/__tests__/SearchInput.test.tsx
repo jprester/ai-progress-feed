@@ -12,5 +12,7 @@ describe('SearchInput', () => {
     expect(wrapped.find('div.search-input-container').length).toEqual(1);
     expect(wrapped.find('input.search-input').length).toEqual(1);
     expect(wrapped.find('button.search-button').length).toEqual(1);
+
+    wrapped.unmount();
   });
 });

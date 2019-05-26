@@ -10,5 +10,7 @@ describe('ShowMoreButton', () => {
     wrapped = mount(<ShowMoreButton />);
 
     expect(wrapped.find('button.show-more-button').length).toEqual(1);
+
+    wrapped.unmount();
   });
 });
