@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import "./App.css";
@@ -10,7 +10,7 @@ import Routes from "./components/Routes";
 import { clearData, setCategory, showMenu, startNewsFetch } from "./actions/";
 
 interface IAppProps {
-  history: [];
+  history: any;
   newsData: [];
   newsListNumber: number;
   startNewsFetch: () => void;
@@ -28,34 +28,36 @@ interface IAppState {
   isFetching: boolean;
 }
 
-class App extends React.Component<IAppProps> {
-  public componentDidMount() {
-    this.props.clearData();
-    this.props.setCategory();
+const App = ({
+  clearData,
+  setCategory,
+  startNewsFetch,
+  history,
+  showMenu,
+  menuVisible,
+  isFetching,
+}: IAppProps) => {
+  useEffect(() => {
+    clearData();
+    setCategory();
 
-    if (!this.props.isFetching) {
-      this.props.startNewsFetch();
+    if (!isFetching) {
+      startNewsFetch();
     }
-  }
+  }, []);
 
-  public render() {
-    return (
-      <div className="App">
-        <Header
-          history={this.props.history}
-          showMenu={this.props.showMenu}
-          menuVisible={this.props.menuVisible}
-        />
-        <div className="main-content">
-          <div className="content-wrapper">
-            <Routes />
-          </div>
+  return (
+    <div className="App">
+      <Header history={history} showMenu={showMenu} menuVisible={menuVisible} />
+      <div className="main-content">
+        <div className="content-wrapper">
+          <Routes />
         </div>
-        <Footer />
       </div>
-    );
-  }
-}
+      <Footer />
+    </div>
+  );
+};
 
 const mapDispatchToProps = (dispatch: any) => ({
   clearData: () => dispatch(clearData()),
@@ -73,6 +75,4 @@ const mapStateToProps = (state: IAppState) => {
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(App) as any
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
