@@ -8,7 +8,6 @@ import {
   SHOW_MORE_ITEMS,
   UPDATE_SEARCH_TEXT,
 } from "../actions/types";
-import { CATEGORY } from "../helpers/apiConfig";
 
 interface IState {
   category: string;
