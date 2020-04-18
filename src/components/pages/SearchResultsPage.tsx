@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
-import NewsListContainer from '../../containers/NewsListContainer';
-import Loader from '../common/Loader';
+import NewsListContainer from "../../containers/NewsListContainer";
+import Loader from "../common/Loader";
 
 interface ISearchPageProps {
   historyData: {
@@ -20,7 +20,7 @@ interface ISearchPageProps {
 
 const SearchPage: React.FC<ISearchPageProps> = (props) => {
   useEffect(() => {
-      props.fetchSearchData(props.historyData.match.params.id);
+    props.fetchSearchData(props.historyData.match.params.id);
   }, []);
 
   if (!props.searchData || !props.searchData.length) {

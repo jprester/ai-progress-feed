@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { clearData, setCategory, updateSearchText } from '../actions/';
-import SearchInput from '../components/widgets/SearchInput/SearchInput';
+import { clearData, setCategory, updateSearchText } from "../actions/";
+import SearchInput from "../components/widgets/SearchInput/SearchInput";
 
 interface ISearchInputContainerState {
   newsData: [];

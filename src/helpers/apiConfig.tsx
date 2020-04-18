@@ -1,21 +1,21 @@
 export const API_KEY = process.env.REACT_APP_NEWSAPI_KEY;
-export const HOST = 'https://newsapi.org/';
+export const HOST = "https://newsapi.org/";
 export const CATEGORY = {
-  ALL: 'all',
-  BUSINESS: 'business',
-  ENTERTAINMENT: 'entertainment',
-  GENERAL: 'general',
-  HEALTH: 'health',
-  SCIENCE: 'science',
-  SPORTS: 'sports',
-  TECHNOLOGY: 'technology',
+  ALL: "all",
+  BUSINESS: "business",
+  ENTERTAINMENT: "entertainment",
+  GENERAL: "general",
+  HEALTH: "health",
+  SCIENCE: "science",
+  SPORTS: "sports",
+  TECHNOLOGY: "technology",
 };
 export const COUNTRY = {
-  CHINA: 'cn',
-  HONG_KONG: 'hk',
-  JAPAN: 'jp',
-  RUSSIA: 'ru',
-  US: 'us',
+  CHINA: "cn",
+  HONG_KONG: "hk",
+  JAPAN: "jp",
+  RUSSIA: "ru",
+  US: "us",
 };
-export const VERSION = 'V2';
+export const VERSION = "V2";
 export const MAX_RESULTS = 100;

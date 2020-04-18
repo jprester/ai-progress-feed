@@ -15,6 +15,7 @@ interface INewsListProps {
   showMoreItems: () => void;
 }
 
+
 interface INewsListItemProps {
   author: string;
   content: string;
@@ -25,7 +26,8 @@ interface INewsListItemProps {
   urlToImage: string;
 }
 
-const createList = (list: INewsListItemProps[]) => (
+const
+createList = (list: INewsListItemProps[]) => (
   list.map((item: INewsListItemProps, index: any) => {
     const { title, urlToImage } = item;
 

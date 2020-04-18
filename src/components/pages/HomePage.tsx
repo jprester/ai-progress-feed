@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import NewsListContainer from '../../containers/NewsListContainer';
-import { CATEGORY } from '../../helpers/apiConfig';
-import CategoryNavigation from '../widgets/CategoryNavigation/CategoryNavigation';
+import NewsListContainer from "../../containers/NewsListContainer";
+import { CATEGORY } from "../../helpers/apiConfig";
+import CategoryNavigation from "../widgets/CategoryNavigation/CategoryNavigation";
 
 interface IHomePageProps {
   historyData: {
@@ -23,7 +23,7 @@ const Home: React.FC<IHomePageProps> = (props) => {
 
     if (props.isFetching === false) {
       props.clearData();
-      props.setCategory('');
+      props.setCategory("");
       props.startNewsFetch();
     }
   }, []);
@@ -31,7 +31,11 @@ const Home: React.FC<IHomePageProps> = (props) => {
   return (
     <div className="home-page">
       <h2 className="page-title">News</h2>
-      <NewsListContainer data={props.newsData} listCount={props.newsListNumber} {...props}/>
+      <NewsListContainer
+        data={props.newsData}
+        listCount={props.newsListNumber}
+        {...props}
+      />
     </div>
   );
 };

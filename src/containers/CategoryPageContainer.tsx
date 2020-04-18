@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { clearData, setCategory, showMenu, startNewsFetch } from '../actions/';
-import CategoryPage from '../components/pages/CategoryPage';
+import { clearData, setCategory, showMenu, startNewsFetch } from "../actions/";
+import CategoryPage from "../components/pages/CategoryPage";
 
 interface ICategoryContainerState {
   category: string;

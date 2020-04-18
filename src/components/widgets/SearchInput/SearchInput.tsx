@@ -1,4 +1,5 @@
 import React from 'react';
+console.warn()
 
 interface ISearchInputProps {
   history: string[];
@@ -31,6 +32,8 @@ const onClickSearchButton = (event: React.FormEvent<HTMLInputElement>, props: IS
     props.history.push(`/search/${props.searchQuery}`);
   }
 };
+
+
 
 const SearchInput: React.FC<ISearchInputProps> = (props) => {
   return(

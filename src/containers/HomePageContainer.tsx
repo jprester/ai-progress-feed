@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { clearData, fetchSearchData, setCategory, startNewsFetch } from '../actions/';
-import HomePage from '../components/pages/HomePage';
+import { clearData, setCategory, startNewsFetch } from "../actions/";
+import HomePage from "../components/pages/HomePage";
 
 interface IHomeContainerState {
   category: string;

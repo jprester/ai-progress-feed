@@ -1,13 +1,13 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { fetchSearchData, showMenu } from '../actions/';
-import SearchResultsPage from '../components/pages/SearchResultsPage';
+import { fetchSearchData, showMenu } from "../actions/";
+import SearchResultsPage from "../components/pages/SearchResultsPage";
 
 interface ISearchResultsState {
   newsListNumber: number;
   searchData: [];
-  searchQuery: '';
+  searchQuery: "";
 }
 
 const mapStateToProps = (state: ISearchResultsState) => {

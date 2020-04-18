@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import Express from "express";
 
-import './App.css';
-import Footer from './components/common/Footer';
-import Header from './components/common/Header';
-import Routes from './components/Routes';
+import "./App.css";
+import Footer from "./components/common/Footer";
+import Header from "./components/common/Header";
+import Routes from "./components/Routes";
 
-import { clearData, setCategory, showMenu, startNewsFetch } from './actions/';
+import { clearData, setCategory, showMenu, startNewsFetch } from "./actions/";
 
 interface IAppProps {
   history: [];
@@ -41,7 +42,11 @@ class App extends React.Component<IAppProps> {
   public render() {
     return (
       <div className="App">
-        <Header history={this.props.history} showMenu={this.props.showMenu} menuVisible={this.props.menuVisible}/>
+        <Header
+          history={this.props.history}
+          showMenu={this.props.showMenu}
+          menuVisible={this.props.menuVisible}
+        />
         <div className="main-content">
           <div className="content-wrapper">
             <Routes />
@@ -69,4 +74,6 @@ const mapStateToProps = (state: IAppState) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App) as any);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(App) as any
+);
