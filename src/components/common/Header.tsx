@@ -12,7 +12,7 @@ interface IHeaderProps {
   history: [];
 }
 
-const Header = (props: IHeaderProps) => {
+const Header = ({ showMenu, menuVisible, history }: IHeaderProps) => {
   return (
     <div className="header-container">
       <div className="content-wrapper">
@@ -28,11 +28,9 @@ const Header = (props: IHeaderProps) => {
             </Link>
             <button
               className={
-                props.menuVisible
-                  ? "mobile-menu-button change"
-                  : "mobile-menu-button"
+                menuVisible ? "mobile-menu-button change" : "mobile-menu-button"
               }
-              onClick={() => props.showMenu(props.menuVisible ? false : true)}
+              onClick={() => showMenu(!menuVisible)}
             >
               <div className="bar1" />
               <div className="bar2" />
@@ -42,13 +40,9 @@ const Header = (props: IHeaderProps) => {
         </div>
       </div>
 
-      <div
-        className={
-          props.menuVisible ? "mobile-menu visible" : "mobile-menu hidden"
-        }
-      >
+      <div className={`mobile-menu ${menuVisible ? "visible" : "hidden"}`}>
         <div className="content-wrapper">
-          <SearchInputContainer history={props.history} />
+          <SearchInputContainer history={history} />
           <h4 className="menu-title">Category</h4>
           <CategoryNavigation data={CATEGORY} />
         </div>

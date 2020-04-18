@@ -12,10 +12,10 @@ interface ICategoryPageProps {
   };
   newsData: [];
   newsListNumber: number;
-  startNewsFetch: any;
-  clearData: any;
-  setCategory: any;
-  showMenu: any;
+  startNewsFetch: (category?: string) => void;
+  clearData: () => void;
+  setCategory: (value?: any) => void;
+  showMenu: (value: boolean) => void;
 }
 
 class CategoryPage extends React.Component<ICategoryPageProps> {

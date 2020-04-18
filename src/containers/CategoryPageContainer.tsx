@@ -1,4 +1,3 @@
-import React from "react";
 import { connect } from "react-redux";
 
 import { clearData, setCategory, showMenu, startNewsFetch } from "../actions/";
@@ -20,9 +19,9 @@ const mapStateToProps = (state: ICategoryContainerState) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   clearData: () => dispatch(clearData()),
-  setCategory: (category: string) => dispatch(setCategory(category)),
+  setCategory: (category?: string) => dispatch(setCategory(category)),
   showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
-  startNewsFetch: (category: string) => dispatch(startNewsFetch(category)),
+  startNewsFetch: (category?: string) => dispatch(startNewsFetch(category)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryPage);
