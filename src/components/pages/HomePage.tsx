@@ -18,13 +18,19 @@ interface IHomePageProps {
 }
 
 const Home: React.FC<IHomePageProps> = (props) => {
+  const {
+    newsData,
+    clearData,
+    setCategory,
+    startNewsFetch,
+    isFetching,
+    newsListNumber,
+  } = props;
   useEffect(() => {
-    const newsData = props.newsData || [];
-
-    if (props.isFetching === false) {
-      props.clearData();
-      props.setCategory("");
-      props.startNewsFetch();
+    if (isFetching === false) {
+      clearData();
+      setCategory("");
+      startNewsFetch();
     }
   }, []);
 
@@ -32,8 +38,8 @@ const Home: React.FC<IHomePageProps> = (props) => {
     <div className="home-page">
       <h2 className="page-title">News</h2>
       <NewsListContainer
-        data={props.newsData}
-        listCount={props.newsListNumber}
+        data={newsData}
+        listCount={newsListNumber}
         {...props}
       />
     </div>

@@ -25,15 +25,15 @@ interface IExtendedNewsItemProps {
   urlToImage: string;
 }
 
-const NewsArticlePage: React.FC<INewsPageProps> = (props) => {
-  if (props.data && props.data.length) {
-    const newArray = props.data.map((item: any) => {
+const NewsArticlePage: React.FC<INewsPageProps> = ({ data, match }) => {
+  if (data && data.length) {
+    const newArray = data.map((item: any) => {
       return { id: createIdFromTitle(item.title), ...item };
     });
 
     const newsObject =
       newArray.find(
-        (item: IExtendedNewsItemProps) => item.id === props.match.params.id
+        (item: IExtendedNewsItemProps) => item.id === match.params.id
       ) || {};
 
     if (_.isEmpty(newsObject)) {

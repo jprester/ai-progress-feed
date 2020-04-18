@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
 
 import NewsListContainer from "../../containers/NewsListContainer";
 import Loader from "../common/Loader";
@@ -19,11 +18,13 @@ interface ISearchPageProps {
 }
 
 const SearchPage: React.FC<ISearchPageProps> = (props) => {
+  const { fetchSearchData, historyData, searchData, newsListNumber } = props;
+
   useEffect(() => {
-    props.fetchSearchData(props.historyData.match.params.id);
+    fetchSearchData(historyData.match.params.id);
   }, []);
 
-  if (!props.searchData || !props.searchData.length) {
+  if (!searchData || !searchData.length) {
     return <Loader />;
   }
 
@@ -31,8 +32,8 @@ const SearchPage: React.FC<ISearchPageProps> = (props) => {
     <div className="search-page">
       <h2 className="page-title">Search Results</h2>
       <NewsListContainer
-        data={props.searchData}
-        listCount={props.newsListNumber}
+        data={searchData}
+        listCount={newsListNumber}
         {...props}
       />
     </div>
