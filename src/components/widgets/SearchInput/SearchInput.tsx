@@ -1,5 +1,5 @@
-import React from 'react';
-console.warn()
+import React from "react";
+console.warn();
 
 interface ISearchInputProps {
   history: string[];
@@ -10,43 +10,56 @@ interface ISearchInputProps {
 }
 
 const onSearchKeypress = (event: any, props: ISearchInputProps) => {
-  if (event.charCode === 13 && props.searchQuery && props.searchQuery.length > 2) {
-    props.updateSearchText('');
+  if (
+    event.charCode === 13 &&
+    props.searchQuery &&
+    props.searchQuery.length > 2
+  ) {
+    props.updateSearchText("");
     props.clearData();
-    props.setCategory('');
+    props.setCategory("");
     props.history.push(`/search/${props.searchQuery}`);
   }
 };
 
-const onChangeValueInput = (event: React.FormEvent<HTMLInputElement>, props: ISearchInputProps) => {
-  const searchText = event.currentTarget.value || '';
+const onChangeValueInput = (
+  event: React.FormEvent<HTMLInputElement>,
+  props: ISearchInputProps
+) => {
+  const searchText = event.currentTarget.value || "";
 
   props.updateSearchText(searchText);
 };
 
-const onClickSearchButton = (event: React.FormEvent<HTMLInputElement>, props: ISearchInputProps) => {
+const onClickSearchButton = (
+  event: React.FormEvent<HTMLInputElement>,
+  props: ISearchInputProps
+) => {
   if (props.searchQuery && props.searchQuery.length > 2) {
-    props.updateSearchText('');
+    props.updateSearchText("");
     props.clearData();
-    props.setCategory('');
+    props.setCategory("");
     props.history.push(`/search/${props.searchQuery}`);
   }
 };
 
-
-
 const SearchInput: React.FC<ISearchInputProps> = (props) => {
-  return(
+  return (
     <div className="search-input-container">
       <input
         type="text"
         placeholder="search"
         className="search-input"
         onChange={(event) => onChangeValueInput(event, props)}
-        value={props.searchQuery || ''}
+        value={props.searchQuery || ""}
         onKeyPress={(event) => onSearchKeypress(event, props)}
       />
-      <button className="search-button" onClick={(event: any) => onClickSearchButton(event, props)}>Search</button>
+      <button
+        className="search-button"
+        onClick={(event: any) => onClickSearchButton(event, props)}
+      >
+        Search
+      </button>
     </div>
   );
 };

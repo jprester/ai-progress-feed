@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Express from "express";
 
 import "./App.css";
 import Footer from "./components/common/Footer";
@@ -14,10 +13,10 @@ interface IAppProps {
   history: [];
   newsData: [];
   newsListNumber: number;
-  startNewsFetch: any;
-  clearData: any;
-  setCategory: any;
-  showMenu: any;
+  startNewsFetch: () => void;
+  clearData: () => void;
+  setCategory: (value?: any) => void;
+  showMenu: (value: boolean) => void;
   menuVisible: boolean;
   isFetching: boolean;
 }
