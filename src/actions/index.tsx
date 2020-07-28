@@ -20,7 +20,6 @@ import {
   GET_OPENAI_FEED_DATA,
   GET_DEEPMIND_FEED_DATA,
 } from "./types";
-import axios from "../__mocks__/axios";
 
 export const getNewsArticles = (articles?: []) => ({
   payload: articles,
@@ -55,28 +54,9 @@ export const setIsFetchingFlag = (isFetching?: boolean) => ({
   type: SET_IS_FETCHING_FLAG,
 });
 
-// export const fetchAll = () => (dispatch: any) => {
-//   console.log("fetch all");
-//   dispatch(startFetchArxivFeed());
-//   startFetchMicrosoftFeed();
-//   startFetchOpenAIFeed();
-//   startFetchDeepMindFeed();
-// };
-
-export const basicFunc = () => {
-  console.log("this should work, idiot");
-};
-
-export const asyncFunct = () => {
-  fetch("https://jsonplaceholder.typicode.com/todos/1")
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-};
-
 export const startFetchArxivFeed = () => (dispatch: any) =>
   getArticles(SOURCES.AI_PAPERS.ARXIV)
     .then((response) => {
-      console.log("waiting for response");
       if (response.items) {
         dispatch(getArxivFeedData(response.items));
       }

@@ -9,10 +9,6 @@ import Routes from "./components/Routes";
 
 import {
   clearData,
-  // fetchAll,
-  startNewsFetch,
-  asyncFunct,
-  basicFunc,
   startFetchArxivFeed,
   startFetchMicrosoftFeed,
   startFetchOpenAIFeed,
@@ -20,13 +16,26 @@ import {
   showMenu,
 } from "./actions/";
 
-const App = ({ clearData, history, showMenu, menuVisible }: any) => {
+const App = ({
+  clearData,
+  history,
+  showMenu,
+  menuVisible,
+  startFetchArxivFeed,
+  startFetchMicrosoftFeed,
+  startFetchOpenAIFeed,
+  startFetchDeepMindFeed,
+}: any) => {
   useEffect(() => {
     // clearData();
     // console.log("starting app");
     // asyncFunct();
     // basicFunc();
-    startNewsFetch();
+    // startNewsFetch();
+    startFetchArxivFeed();
+    startFetchMicrosoftFeed();
+    startFetchDeepMindFeed();
+    startFetchOpenAIFeed();
   }, []);
 
   return (
@@ -60,9 +69,6 @@ const mapDispatchToProps = (dispatch: any) => ({
   startFetchMicrosoftFeed: () => dispatch(startFetchMicrosoftFeed()),
   startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
   startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
-  // fetchAll: () => dispatch(fetchAll()),
-  asyncFunct: () => dispatch(asyncFunct()),
-  startNewsFetch: () => dispatch(startNewsFetch()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

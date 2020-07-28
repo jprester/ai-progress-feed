@@ -8,7 +8,6 @@ import {
   startFetchDeepMindFeed,
 } from "../actions/";
 import HomePage from "../components/pages/HomePage";
-import { SOURCES } from "../helpers/apiConfig";
 
 const mapStateToProps = (state: any) => {
   return {
