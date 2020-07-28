@@ -7,43 +7,26 @@ import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import Routes from "./components/Routes";
 
-import { clearData, setCategory, showMenu, startNewsFetch } from "./actions/";
-
-interface IAppProps {
-  history: any;
-  newsData: [];
-  newsListNumber: number;
-  startNewsFetch: () => void;
-  clearData: () => void;
-  setCategory: (value?: any) => void;
-  showMenu: (value: boolean) => void;
-  menuVisible: boolean;
-  isFetching: boolean;
-}
-
-interface IAppState {
-  menuVisible: boolean;
-  newsData: [];
-  newsListNumber: number;
-  isFetching: boolean;
-}
-
-const App = ({
+import {
   clearData,
-  setCategory,
+  // fetchAll,
   startNewsFetch,
-  history,
+  asyncFunct,
+  basicFunc,
+  startFetchArxivFeed,
+  startFetchMicrosoftFeed,
+  startFetchOpenAIFeed,
+  startFetchDeepMindFeed,
   showMenu,
-  menuVisible,
-  isFetching,
-}: IAppProps) => {
-  useEffect(() => {
-    clearData();
-    setCategory();
+} from "./actions/";
 
-    if (!isFetching) {
-      startNewsFetch();
-    }
+const App = ({ clearData, history, showMenu, menuVisible }: any) => {
+  useEffect(() => {
+    // clearData();
+    // console.log("starting app");
+    // asyncFunct();
+    // basicFunc();
+    startNewsFetch();
   }, []);
 
   return (
@@ -59,20 +42,27 @@ const App = ({
   );
 };
 
-const mapDispatchToProps = (dispatch: any) => ({
-  clearData: () => dispatch(clearData()),
-  setCategory: (text: string) => dispatch(setCategory(text)),
-  showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
-  startNewsFetch: () => dispatch(startNewsFetch()),
-});
-
-const mapStateToProps = (state: IAppState) => {
+const mapStateToProps = (state: any) => {
   return {
     isFetching: state.isFetching,
     menuVisible: state.menuVisible,
-    newsData: state.newsData,
-    newsListNumber: state.newsListNumber,
+    arxivFeedData: state.arxivFeedData,
+    microsoftFeedData: state.microsoftFeedData,
+    deepMindFeedData: state.deepMindFeedData,
+    openAIFeedData: state.openAIFeedData,
   };
 };
+
+const mapDispatchToProps = (dispatch: any) => ({
+  clearData: () => dispatch(clearData()),
+  showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
+  startFetchArxivFeed: () => dispatch(startFetchArxivFeed()),
+  startFetchMicrosoftFeed: () => dispatch(startFetchMicrosoftFeed()),
+  startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
+  startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
+  // fetchAll: () => dispatch(fetchAll()),
+  asyncFunct: () => dispatch(asyncFunct()),
+  startNewsFetch: () => dispatch(startNewsFetch()),
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

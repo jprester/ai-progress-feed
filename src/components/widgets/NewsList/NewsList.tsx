@@ -11,8 +11,6 @@ interface INewsListProps {
     match: {};
   };
   data: INewsListItemProps[];
-  listCount: number;
-  showMoreItems: () => void;
 }
 
 interface INewsListItemProps {
@@ -25,7 +23,7 @@ interface INewsListItemProps {
   urlToImage: string;
 }
 
-const createList = (list: INewsListItemProps[]) =>
+const createList = (list: any) =>
   list.map((item: INewsListItemProps, index: any) => {
     const { title, urlToImage } = item;
 
@@ -40,22 +38,16 @@ const createList = (list: INewsListItemProps[]) =>
     return <div key={title}>Didn't get correct news data</div>;
   });
 
-const NewsList: React.FC<INewsListProps> = (props) => {
+const NewsList = (props: any) => {
   if (!props || !Array.isArray(props.data) || !props.data.length) {
     return <Loader />;
   }
 
-  const { data, listCount, showMoreItems } = props;
-  const listData = data.slice(0, listCount);
+  const { data } = props;
 
   return (
     <div className="news-list-container">
-      <ul className="news-list">{createList(listData)}</ul>
-      <div className="show-more-button-container">
-        {listCount < data.length && (
-          <ShowMoreButton showMoreItems={showMoreItems} />
-        )}
-      </div>
+      <ul className="news-list">{createList(data)}</ul>
     </div>
   );
 };

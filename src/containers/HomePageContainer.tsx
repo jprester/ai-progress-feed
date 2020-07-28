@@ -1,28 +1,31 @@
 import { connect } from "react-redux";
 
-import { clearData, setCategory, startNewsFetch } from "../actions/";
+import {
+  clearData,
+  startFetchArxivFeed,
+  startFetchMicrosoftFeed,
+  startFetchOpenAIFeed,
+  startFetchDeepMindFeed,
+} from "../actions/";
 import HomePage from "../components/pages/HomePage";
+import { SOURCES } from "../helpers/apiConfig";
 
-interface IHomeContainerState {
-  category: string;
-  isFetching: boolean;
-  newsData: [];
-  newsListNumber: number;
-}
-
-const mapStateToProps = (state: IHomeContainerState) => {
+const mapStateToProps = (state: any) => {
   return {
-    category: state.category,
     isFetching: state.isFetching,
-    newsData: state.newsData,
-    newsListNumber: state.newsListNumber,
+    arxivFeedData: state.arxivFeedData,
+    microsoftFeedData: state.microsoftFeedData,
+    deepMindFeedData: state.deepMindFeedData,
+    openAIFeedData: state.openAIFeedData,
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
   clearData: () => dispatch(clearData()),
-  setCategory: (text: string) => dispatch(setCategory(text)),
-  startNewsFetch: () => dispatch(startNewsFetch()),
+  startFetchArxivFeed: () => dispatch(startFetchArxivFeed()),
+  startFetchMicrosoftFeed: () => dispatch(startFetchMicrosoftFeed()),
+  startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
+  startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

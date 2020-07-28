@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import SearchInputContainer from "../../containers/SearchInputContainer";
-import { CATEGORY } from "../../helpers/apiConfig";
-import CategoryNavigation from "../widgets/CategoryNavigation/CategoryNavigation";
 
 interface IHeaderProps {
   showMenu: (menuVisible: boolean) => void;
@@ -44,7 +42,6 @@ const Header = ({ showMenu, menuVisible, history }: IHeaderProps) => {
         <div className="content-wrapper">
           <SearchInputContainer history={history} />
           <h4 className="menu-title">Category</h4>
-          <CategoryNavigation data={CATEGORY} />
         </div>
       </div>
     </div>
