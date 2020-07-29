@@ -27,11 +27,6 @@ const App = ({
   startFetchDeepMindFeed,
 }: any) => {
   useEffect(() => {
-    // clearData();
-    // console.log("starting app");
-    // asyncFunct();
-    // basicFunc();
-    // startNewsFetch();
     startFetchArxivFeed();
     startFetchMicrosoftFeed();
     startFetchDeepMindFeed();

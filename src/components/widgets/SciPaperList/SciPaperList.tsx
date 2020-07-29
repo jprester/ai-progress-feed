@@ -15,7 +15,6 @@ const createSciPaperList = (list: any, maxItems: number = 10) =>
   });
 
 const SciPaperList = ({ data }: any) => {
-  console.log("SciPaperList data: ", data);
   return (
     <div className="article-list-container">
       {data && data.length ? (

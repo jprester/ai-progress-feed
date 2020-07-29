@@ -21,7 +21,6 @@ const createArticleList = (list: any, maxItems: number = 10) =>
   });
 
 const ArticleList = ({ data }: any) => {
-  console.log("article data: ", data);
   return (
     <div className="article-list-container">
       {data && data.length ? (

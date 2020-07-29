@@ -2,7 +2,7 @@
 
 ## App Demo
 
-Netlify link: https://ai-progress-feed.netlify.com/
+Netlify link: https://ai-progress-feed.netlify.app/
 
 ## Description
 
