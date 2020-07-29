@@ -26,10 +26,10 @@ h1.logo a {
 }
 
 h2.page-title {
-  margin: 16px 0px;
-  font-size: 18px;
+  margin: 26px 0px 15px 0px;
+  font-size: 22px;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .navigation-content {
@@ -165,35 +165,41 @@ h4.menu-title {
   opacity: 0.8;
 }
 
-.news-list-container {
+.article-list-container,
+.scipaper-list-container {
   position: relative;
   min-height: 200px;
+  margin-bottom: 40px;
 }
 
-.news-list li {
+.article-list li,
+.scipaper-list li {
   list-style: none;
-  margin-bottom: 12px;
-  border-bottom: 1px solid #a178f4;
+  margin-bottom: 22px;
 }
 
-.news-list li a {
+.article-list li a,
+.scipaper-list li a {
   display: block;
   height: auto;
   font-size: 15px;
   padding: 8px 0px;
 }
 
-.news-list li .news-list-image {
-  width: 100%;
-  height: auto;
-}
-
-.news-list li:hover {
-  border-bottom: 1px solid #cccccc;
-}
-
-.news-list li a:hover {
+.article-list li a:hover,
+.scipaper-list li a:hover {
   color: #888888;
+}
+
+.article-list li h4,
+.scipaper-list li h4 {
+  border-bottom: 1px solid #a178f4;
+  margin-bottom: 6px;
+}
+
+.article-text-snippet {
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .show-more-button-container {

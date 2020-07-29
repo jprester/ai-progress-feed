@@ -1,12 +1,13 @@
 import React from "react";
 
-const ArticleListItem = ({ title, url, contentSnippet }: any) => {
+const ArticleListItem = ({ title, url, contentSnippet, date }: any) => {
   return (
     <li className="scipaper-list-item">
-      <h3>
+      <p className="list-item-date">{date}</p>
+      <h4 className="list-item-title">
         <a href={url}>{title}</a>
-      </h3>
-      <p>{contentSnippet}</p>
+      </h4>
+      <p className="article-text-snippet">{contentSnippet}</p>
     </li>
   );
 };

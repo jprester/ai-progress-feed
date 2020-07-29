@@ -5,7 +5,7 @@ import ArticleListItem from "./ArticleListItem";
 
 const createArticleList = (list: any, maxItems: number = 10) =>
   list.map((item: any, index: any) => {
-    const { title, gid, contentSnippet, link } = item;
+    const { title, gid, contentSnippet, link, isoDate } = item;
 
     if (title && index <= maxItems) {
       return (
@@ -14,16 +14,18 @@ const createArticleList = (list: any, maxItems: number = 10) =>
           title={title}
           url={link}
           contentSnippet={contentSnippet}
+          date={isoDate}
         />
       );
     }
   });
 
 const ArticleList = ({ data }: any) => {
+  console.log("article data: ", data);
   return (
-    <div className="news-list-container">
+    <div className="article-list-container">
       {data && data.length ? (
-        <ul className="news-list">{createArticleList(data)}</ul>
+        <ul className="article-list">{createArticleList(data)}</ul>
       ) : (
         <Loader />
       )}
