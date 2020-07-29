@@ -2,9 +2,10 @@ import React from "react";
 
 import Loader from "../../common/Loader";
 import ArticleListItem from "./ArticleListItem";
+import { IArticleListProps, IArticleDataItem } from "../../../types/types";
 
-const createArticleList = (list: any, maxItems: number = 10) =>
-  list.map((item: any, index: any) => {
+const createArticleList = (list: IArticleDataItem[], maxItems: number = 10) =>
+  list.map((item, index: number) => {
     const { title, gid, contentSnippet, link, isoDate } = item;
 
     if (title && index <= maxItems) {
@@ -12,15 +13,15 @@ const createArticleList = (list: any, maxItems: number = 10) =>
         <ArticleListItem
           key={gid}
           title={title}
-          url={link}
+          link={link}
           contentSnippet={contentSnippet}
-          date={isoDate}
+          isoDate={isoDate}
         />
       );
     }
   });
 
-const ArticleList = ({ data }: any) => {
+const ArticleList = ({ data }: IArticleListProps) => {
   return (
     <div className="article-list-container">
       {data && data.length ? (

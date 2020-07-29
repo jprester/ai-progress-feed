@@ -1,11 +1,14 @@
 import React from "react";
 
-const SciPaperListItem = ({ title, url, date }: any) => {
+import { formatDate } from "../../../helpers/utils";
+import { ISciPaperDataItem } from "../../../types/types";
+
+const SciPaperListItem = ({ title, link, isoDate }: ISciPaperDataItem) => {
   return (
     <li className="scipaper-list-item">
-      <p className="list-item-date">{date}</p>
+      <p className="list-item-isoDate">{formatDate(isoDate)}</p>
       <h4 className="list-item-title">
-        <a href={url}>{title}</a>
+        <a href={link}>{title}</a>
       </h4>
     </li>
   );

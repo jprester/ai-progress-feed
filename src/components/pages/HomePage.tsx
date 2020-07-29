@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 
+import { IHomePageProps } from "../../types/types";
 import SciPaperList from "../widgets/SciPaperList/SciPaperList";
 import ArticleList from "../widgets/ArticleList/ArticleList";
 
-const Home = (props: any) => {
+const Home = (props: IHomePageProps) => {
   return (
     <div className="home-page">
-      <h2 className="page-title">Arxiv</h2>
+      <h3 className="feed-list-title">Arxiv</h3>
       <SciPaperList data={props.arxivFeedData} />
-      <h2 className="page-title">Microsoft</h2>
-      <ArticleList data={props.microsoftFeedData} />
-      <h2 className="page-title">OpenAI</h2>
+      <h3 className="feed-list-title">OpenAI</h3>
       <ArticleList data={props.openAIFeedData} />
-      <h2 className="page-title">DeepMind</h2>
+      <h3 className="feed-list-title">DeepMind</h3>
       <ArticleList data={props.deepMindFeedData} />
+      <h3 className="feed-list-title">Microsoft</h3>
+      <ArticleList data={props.microsoftFeedData} />
     </div>
   );
 };

@@ -6,9 +6,9 @@ import "./App.css";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import Routes from "./components/Routes";
+import { IAppProps } from "./types/types";
 
 import {
-  clearData,
   startFetchArxivFeed,
   startFetchMicrosoftFeed,
   startFetchOpenAIFeed,
@@ -17,7 +17,6 @@ import {
 } from "./actions/";
 
 const App = ({
-  clearData,
   history,
   showMenu,
   menuVisible,
@@ -25,7 +24,7 @@ const App = ({
   startFetchMicrosoftFeed,
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
-}: any) => {
+}: IAppProps) => {
   useEffect(() => {
     startFetchArxivFeed();
     startFetchMicrosoftFeed();
@@ -48,17 +47,11 @@ const App = ({
 
 const mapStateToProps = (state: any) => {
   return {
-    isFetching: state.isFetching,
     menuVisible: state.menuVisible,
-    arxivFeedData: state.arxivFeedData,
-    microsoftFeedData: state.microsoftFeedData,
-    deepMindFeedData: state.deepMindFeedData,
-    openAIFeedData: state.openAIFeedData,
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  clearData: () => dispatch(clearData()),
   showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
   startFetchArxivFeed: () => dispatch(startFetchArxivFeed()),
   startFetchMicrosoftFeed: () => dispatch(startFetchMicrosoftFeed()),

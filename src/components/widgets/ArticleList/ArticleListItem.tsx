@@ -1,11 +1,19 @@
 import React from "react";
 
-const ArticleListItem = ({ title, url, contentSnippet, date }: any) => {
+import { formatDate } from "../../../helpers/utils";
+import { IArticleDataItem } from "../../../types/types";
+
+const ArticleListItem = ({
+  title,
+  link,
+  contentSnippet,
+  isoDate,
+}: IArticleDataItem) => {
   return (
     <li className="scipaper-list-item">
-      <p className="list-item-date">{date}</p>
+      <p className="list-item-date">{formatDate(isoDate)}</p>
       <h4 className="list-item-title">
-        <a href={url}>{title}</a>
+        <a href={link}>{title}</a>
       </h4>
       <p className="article-text-snippet">{contentSnippet}</p>
     </li>

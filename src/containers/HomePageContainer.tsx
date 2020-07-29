@@ -1,17 +1,10 @@
 import { connect } from "react-redux";
 
-import {
-  clearData,
-  startFetchArxivFeed,
-  startFetchMicrosoftFeed,
-  startFetchOpenAIFeed,
-  startFetchDeepMindFeed,
-} from "../actions/";
 import HomePage from "../components/pages/HomePage";
+import { IHomePageProps } from "../types/types";
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IHomePageProps) => {
   return {
-    isFetching: state.isFetching,
     arxivFeedData: state.arxivFeedData,
     microsoftFeedData: state.microsoftFeedData,
     deepMindFeedData: state.deepMindFeedData,
@@ -19,12 +12,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: any) => ({
-  clearData: () => dispatch(clearData()),
-  startFetchArxivFeed: () => dispatch(startFetchArxivFeed()),
-  startFetchMicrosoftFeed: () => dispatch(startFetchMicrosoftFeed()),
-  startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
-  startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps)(HomePage);

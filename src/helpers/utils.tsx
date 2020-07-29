@@ -11,3 +11,7 @@ export function createIdFromTitle(title: string) {
 
   return textArray.join("-");
 }
+
+export function formatDate(date: string) {
+  return date.slice(0, 10);
+}

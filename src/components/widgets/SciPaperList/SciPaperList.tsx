@@ -2,19 +2,25 @@ import React from "react";
 
 import Loader from "../../common/Loader";
 import SciPaperListItem from "./SciPaperListItem";
+import { ISciPaperListProps, ISciPaperDataItem } from "../../../types/types";
 
-const createSciPaperList = (list: any, maxItems: number = 10) =>
-  list.map((item: any, index: any) => {
+const createSciPaperList = (list: ISciPaperDataItem[], maxItems: number = 10) =>
+  list.map((item, index: number) => {
     const { title, id, link, isoDate } = item;
 
     if (title && index <= maxItems) {
       return (
-        <SciPaperListItem key={id} title={title} url={link} date={isoDate} />
+        <SciPaperListItem
+          key={id}
+          title={title}
+          link={link}
+          isoDate={isoDate}
+        />
       );
     }
   });
 
-const SciPaperList = ({ data }: any) => {
+const SciPaperList = ({ data }: ISciPaperListProps) => {
   return (
     <div className="article-list-container">
       {data && data.length ? (

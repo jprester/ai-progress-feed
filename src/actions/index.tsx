@@ -13,12 +13,10 @@ import {
   SHOW_MENU,
   SHOW_MORE_ITEMS,
   UPDATE_SEARCH_TEXT,
-  GET_ARXIV_FEED_DATA,
-  GET_YOUTUBE_FEED_DATA,
-  GET_GOOGLE_FEED_DATA,
-  GET_MICROSOFT_FEED_DATA,
-  GET_OPENAI_FEED_DATA,
-  GET_DEEPMIND_FEED_DATA,
+  SET_ARXIV_FEED_DATA,
+  SET_MICROSOFT_FEED_DATA,
+  SET_OPENAI_FEED_DATA,
+  SET_DEEPMIND_FEED_DATA,
 } from "./types";
 
 export const getNewsArticles = (articles?: []) => ({
@@ -49,16 +47,11 @@ export const showMenu = (isVisible: boolean) => ({
   type: SHOW_MENU,
 });
 
-export const setIsFetchingFlag = (isFetching?: boolean) => ({
-  payload: isFetching,
-  type: SET_IS_FETCHING_FLAG,
-});
-
 export const startFetchArxivFeed = () => (dispatch: any) =>
   getArticles(SOURCES.AI_PAPERS.ARXIV)
     .then((response) => {
       if (response.items) {
-        dispatch(getArxivFeedData(response.items));
+        dispatch(setArxivFeedData(response.items));
       }
     })
     .catch((error) => {
@@ -69,7 +62,7 @@ export const startFetchMicrosoftFeed = () => (dispatch: any) =>
   getArticles(SOURCES.COMPANIES.MICROSOFT)
     .then((response) => {
       if (response.items) {
-        dispatch(getMicrosoftFeedData(response.items));
+        dispatch(setMicrosoftFeedData(response.items));
       }
     })
     .catch((error) => {
@@ -80,7 +73,7 @@ export const startFetchOpenAIFeed = () => (dispatch: any) =>
   getArticles(SOURCES.COMPANIES.OPENAI)
     .then((response) => {
       if (response.items) {
-        dispatch(getOpenAIFeedData(response.items));
+        dispatch(setOpenAIFeedData(response.items));
       }
     })
     .catch((error) => {
@@ -91,41 +84,31 @@ export const startFetchDeepMindFeed = () => (dispatch: any) =>
   getArticles(SOURCES.COMPANIES.DEEPMIND)
     .then((response) => {
       if (response.items) {
-        dispatch(getDeepMindFeedData(response.items));
+        dispatch(setDeepMindFeedData(response.items));
       }
     })
     .catch((error) => {
       console.warn(error);
     });
 
-export const getArxivFeedData = (data: any) => ({
+export const setArxivFeedData = (data: any) => ({
   payload: data,
-  type: GET_ARXIV_FEED_DATA,
+  type: SET_ARXIV_FEED_DATA,
 });
 
-export const getYoutubeFeedData = (data: any) => ({
+export const setMicrosoftFeedData = (data: any) => ({
   payload: data,
-  type: GET_YOUTUBE_FEED_DATA,
+  type: SET_MICROSOFT_FEED_DATA,
 });
 
-export const getGoogleFeedData = (data: any) => ({
+export const setOpenAIFeedData = (data: any) => ({
   payload: data,
-  type: GET_GOOGLE_FEED_DATA,
+  type: SET_OPENAI_FEED_DATA,
 });
 
-export const getMicrosoftFeedData = (data: any) => ({
+export const setDeepMindFeedData = (data: any) => ({
   payload: data,
-  type: GET_MICROSOFT_FEED_DATA,
-});
-
-export const getOpenAIFeedData = (data: any) => ({
-  payload: data,
-  type: GET_OPENAI_FEED_DATA,
-});
-
-export const getDeepMindFeedData = (data: any) => ({
-  payload: data,
-  type: GET_DEEPMIND_FEED_DATA,
+  type: SET_DEEPMIND_FEED_DATA,
 });
 
 export const getSearchResults = (articles: []) => ({
