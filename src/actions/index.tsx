@@ -98,24 +98,6 @@ export const startFetchDeepMindFeed = () => (dispatch: any) =>
       console.warn(error);
     });
 
-export const startNewsFetch = () => (dispatch: Dispatch) => {
-  dispatch(setIsFetchingFlag(true));
-  fetch("https://jsonplaceholder.typicode.com/todos/1")
-    .then((response) => {
-      const articles = _.get(response, ["data", "articles"], []);
-
-      if (articles.length) {
-        dispatch(getNewsArticles(articles));
-      }
-    })
-    .catch((error: {}) => {
-      console.warn(error);
-    })
-    .finally(() => {
-      dispatch(setIsFetchingFlag(false));
-    });
-};
-
 export const getArxivFeedData = (data: any) => ({
   payload: data,
   type: GET_ARXIV_FEED_DATA,
