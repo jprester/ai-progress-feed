@@ -6,7 +6,7 @@ import { ISciPaperDataItem } from "../../../types/types";
 const SciPaperListItem = ({ title, link, isoDate }: ISciPaperDataItem) => {
   return (
     <li className="scipaper-list-item">
-      <p className="list-item-isoDate">{formatDate(isoDate)}</p>
+      <p className="list-item-date">{formatDate(isoDate)}</p>
       <h4 className="list-item-title">
         <a href={link}>{title}</a>
       </h4>

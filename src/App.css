@@ -39,6 +39,8 @@ h3.feed-list-title {
   text-transform: uppercase;
   font-weight: 600;
   color: #02203c;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #02203c;
 }
 
 .navigation-content {
@@ -191,6 +193,13 @@ h4.menu-title {
 .article-list li,
 .scipaper-list li {
   list-style: none;
+}
+
+li.scipaper-list-item {
+  margin-bottom: 12px;
+}
+
+li.article-list-item {
   margin-bottom: 22px;
 }
 
@@ -299,5 +308,14 @@ h5.news-page-description {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 550px) {
+  .content-wrapper {
+    padding: 0px 15px;
+  }
+  .header-sub-title {
+    display: none;
   }
 }

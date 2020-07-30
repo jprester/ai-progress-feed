@@ -10,7 +10,7 @@ const ArticleListItem = ({
   isoDate,
 }: IArticleDataItem) => {
   return (
-    <li className="scipaper-list-item">
+    <li className="article-list-item">
       <p className="list-item-date">{formatDate(isoDate)}</p>
       <h4 className="list-item-title">
         <a href={link}>{title}</a>
