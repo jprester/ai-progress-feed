@@ -9,6 +9,7 @@ const mapStateToProps = (state: IHomePageProps) => {
     microsoftFeedData: state.microsoftFeedData,
     deepMindFeedData: state.deepMindFeedData,
     openAIFeedData: state.openAIFeedData,
+    nvidiaFeedData: state.nvidiaFeedData,
   };
 };
 

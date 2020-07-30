@@ -20,12 +20,14 @@ export interface IAppProps {
   startFetchMicrosoftFeed: any;
   startFetchOpenAIFeed: any;
   startFetchDeepMindFeed: any;
+  startFetchNvidiaFeed: any;
 }
 export interface IHomePageProps {
   arxivFeedData: [];
   microsoftFeedData: [];
   deepMindFeedData: [];
   openAIFeedData: [];
+  nvidiaFeedData: [];
   historyData?: any;
 }
 

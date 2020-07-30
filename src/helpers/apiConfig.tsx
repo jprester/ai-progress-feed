@@ -19,5 +19,6 @@ export const SOURCES = {
     MICROSOFT: "https://www.microsoft.com/en-us/research/feed/",
     OPENAI: "https://openai.com/blog/rss/",
     DEEPMIND: "https://deepmind.com/blog/feed/basic/",
+    NVIDIA: "https://feeds.feedburner.com/nvidiablog?format=xml",
   },
 };

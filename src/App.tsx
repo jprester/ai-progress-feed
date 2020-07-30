@@ -13,6 +13,7 @@ import {
   startFetchMicrosoftFeed,
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
+  startFetchNvidiaFeed,
   showMenu,
 } from "./actions/";
 
@@ -24,12 +25,14 @@ const App = ({
   startFetchMicrosoftFeed,
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
+  startFetchNvidiaFeed,
 }: IAppProps) => {
   useEffect(() => {
     startFetchArxivFeed();
     startFetchMicrosoftFeed();
     startFetchDeepMindFeed();
     startFetchOpenAIFeed();
+    startFetchNvidiaFeed();
   }, []);
 
   return (
@@ -57,6 +60,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   startFetchMicrosoftFeed: () => dispatch(startFetchMicrosoftFeed()),
   startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
   startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
+  startFetchNvidiaFeed: () => dispatch(startFetchNvidiaFeed()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -17,6 +17,7 @@ import {
   SET_MICROSOFT_FEED_DATA,
   SET_OPENAI_FEED_DATA,
   SET_DEEPMIND_FEED_DATA,
+  SET_NVIDIA_FEED_DATA,
 } from "./types";
 
 export const getNewsArticles = (articles?: []) => ({
@@ -91,6 +92,17 @@ export const startFetchDeepMindFeed = () => (dispatch: any) =>
       console.warn(error);
     });
 
+export const startFetchNvidiaFeed = () => (dispatch: any) =>
+  getArticles(SOURCES.COMPANIES.NVIDIA)
+    .then((response) => {
+      if (response.items) {
+        dispatch(setNvidiaFeedData(response.items));
+      }
+    })
+    .catch((error) => {
+      console.warn(error);
+    });
+
 export const setArxivFeedData = (data: any) => ({
   payload: data,
   type: SET_ARXIV_FEED_DATA,
@@ -109,6 +121,11 @@ export const setOpenAIFeedData = (data: any) => ({
 export const setDeepMindFeedData = (data: any) => ({
   payload: data,
   type: SET_DEEPMIND_FEED_DATA,
+});
+
+export const setNvidiaFeedData = (data: any) => ({
+  payload: data,
+  type: SET_NVIDIA_FEED_DATA,
 });
 
 export const getSearchResults = (articles: []) => ({

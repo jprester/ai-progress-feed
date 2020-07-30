@@ -15,6 +15,8 @@ const Home = (props: IHomePageProps) => {
       <ArticleList data={props.deepMindFeedData} />
       <h3 className="feed-list-title">Microsoft</h3>
       <ArticleList data={props.microsoftFeedData} />
+      <h3 className="feed-list-title">Nvidia</h3>
+      <ArticleList data={props.nvidiaFeedData} />
     </div>
   );
 };
