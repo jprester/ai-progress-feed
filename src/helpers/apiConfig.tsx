@@ -1,3 +1,4 @@
+export const PROXY_SERVER = "https://cors-proxy-janko.herokuapp.com";
 export const SOURCES = {
   AI_PAPERS: {
     ARXIV:
