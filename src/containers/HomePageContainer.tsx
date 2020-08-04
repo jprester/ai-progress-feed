@@ -10,6 +10,7 @@ const mapStateToProps = (state: IHomePageProps) => {
     deepMindFeedData: state.deepMindFeedData,
     openAIFeedData: state.openAIFeedData,
     nvidiaFeedData: state.nvidiaFeedData,
+    googleFeedData: state.googleFeedData,
   };
 };
 

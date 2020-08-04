@@ -21,5 +21,6 @@ export const SOURCES = {
     OPENAI: "https://openai.com/blog/rss/",
     DEEPMIND: "https://deepmind.com/blog/feed/basic/",
     NVIDIA: "https://feeds.feedburner.com/nvidiablog?format=xml",
+    GOOGLE: "http://feeds.feedburner.com/blogspot/gJZg?format=xml",
   },
 };

@@ -4,6 +4,8 @@ export interface IState {
   microsoftFeedData: number[];
   deepMindFeedData: number[];
   openAIFeedData: number[];
+  nvidiaFeedData: number[];
+  googleFeedData: number[];
   searchQuery: string;
 }
 
@@ -21,6 +23,7 @@ export interface IAppProps {
   startFetchOpenAIFeed: any;
   startFetchDeepMindFeed: any;
   startFetchNvidiaFeed: any;
+  startFetchGoogleAIFeed: any;
 }
 export interface IHomePageProps {
   arxivFeedData: [];
@@ -28,6 +31,7 @@ export interface IHomePageProps {
   deepMindFeedData: [];
   openAIFeedData: [];
   nvidiaFeedData: [];
+  googleFeedData: [];
   historyData?: any;
 }
 

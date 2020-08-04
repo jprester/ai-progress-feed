@@ -14,6 +14,7 @@ import {
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
   startFetchNvidiaFeed,
+  startFetchGoogleAIFeed,
   showMenu,
 } from "./actions/";
 
@@ -26,6 +27,7 @@ const App = ({
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
   startFetchNvidiaFeed,
+  startFetchGoogleAIFeed,
 }: IAppProps) => {
   useEffect(() => {
     startFetchArxivFeed();
@@ -33,6 +35,7 @@ const App = ({
     startFetchDeepMindFeed();
     startFetchOpenAIFeed();
     startFetchNvidiaFeed();
+    startFetchGoogleAIFeed();
   }, []);
 
   return (
@@ -61,6 +64,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
   startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
   startFetchNvidiaFeed: () => dispatch(startFetchNvidiaFeed()),
+  startFetchGoogleAIFeed: () => dispatch(startFetchGoogleAIFeed()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -1,6 +1,4 @@
 import _ from "lodash";
-import Parser from "rss-parser";
-import { Dispatch } from "redux";
 
 import { getArticles } from "../services/apiService";
 import { SOURCES } from "../helpers/apiConfig";
@@ -18,6 +16,7 @@ import {
   SET_OPENAI_FEED_DATA,
   SET_DEEPMIND_FEED_DATA,
   SET_NVIDIA_FEED_DATA,
+  SET_GOOGLE_FEED_DATA,
 } from "./types";
 
 export const getNewsArticles = (articles?: []) => ({
@@ -103,6 +102,17 @@ export const startFetchNvidiaFeed = () => (dispatch: any) =>
       console.warn(error);
     });
 
+export const startFetchGoogleAIFeed = () => (dispatch: any) =>
+  getArticles(SOURCES.COMPANIES.GOOGLE)
+    .then((response) => {
+      if (response.items) {
+        dispatch(setGoogleFeedData(response.items));
+      }
+    })
+    .catch((error) => {
+      console.warn(error);
+    });
+
 export const setArxivFeedData = (data: any) => ({
   payload: data,
   type: SET_ARXIV_FEED_DATA,
@@ -126,6 +136,11 @@ export const setDeepMindFeedData = (data: any) => ({
 export const setNvidiaFeedData = (data: any) => ({
   payload: data,
   type: SET_NVIDIA_FEED_DATA,
+});
+
+export const setGoogleFeedData = (data: any) => ({
+  payload: data,
+  type: SET_GOOGLE_FEED_DATA,
 });
 
 export const getSearchResults = (articles: []) => ({

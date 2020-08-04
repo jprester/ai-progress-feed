@@ -7,6 +7,7 @@ import {
   SHOW_MENU,
   UPDATE_SEARCH_TEXT,
   SET_NVIDIA_FEED_DATA,
+  SET_GOOGLE_FEED_DATA,
 } from "../actions/types";
 import { IState, IAction } from "../types/types";
 
@@ -18,6 +19,7 @@ const INITIAL_STATE = {
   deepMindFeedData: [],
   openAIFeedData: [],
   nvidiaFeedData: [],
+  googleFeedData: [],
   searchQuery: "",
 };
 
@@ -51,6 +53,12 @@ export default (state: IState = INITIAL_STATE, action: IAction) => {
       return {
         ...state,
         nvidiaFeedData: action.payload,
+      };
+
+    case SET_GOOGLE_FEED_DATA:
+      return {
+        ...state,
+        googleFeedData: action.payload,
       };
 
     case UPDATE_SEARCH_TEXT:
