@@ -113,6 +113,18 @@ export const startFetchGoogleAIFeed = () => (dispatch: any) =>
       console.warn(error);
     });
 
+export const startFetchYoutubeFeed = () => (dispatch: any) =>
+  getArticles(SOURCES.YOUTUBE.TWO_MINUTE_PAPERS)
+    .then((response) => {
+      console.log("youtube data : ", response);
+      if (response.items) {
+        dispatch(setYoutubeData(response.items));
+      }
+    })
+    .catch((error) => {
+      console.warn(error);
+    });
+
 export const setArxivFeedData = (data: any) => ({
   payload: data,
   type: SET_ARXIV_FEED_DATA,
@@ -141,6 +153,11 @@ export const setNvidiaFeedData = (data: any) => ({
 export const setGoogleFeedData = (data: any) => ({
   payload: data,
   type: SET_GOOGLE_FEED_DATA,
+});
+
+export const setYoutubeData = (data: any) => ({
+  payload: data,
+  type: "SET_YOUTUBE_DATA",
 });
 
 export const getSearchResults = (articles: []) => ({

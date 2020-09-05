@@ -19,6 +19,7 @@ export interface IAppProps {
   showMenu: (value: boolean) => void;
   menuVisible: boolean;
   startFetchArxivFeed: any;
+  startFetchYoutubeFeed: any;
   startFetchMicrosoftFeed: any;
   startFetchOpenAIFeed: any;
   startFetchDeepMindFeed: any;
@@ -27,6 +28,7 @@ export interface IAppProps {
 }
 export interface IHomePageProps {
   arxivFeedData: [];
+  youtubeFeedData: [];
   microsoftFeedData: [];
   deepMindFeedData: [];
   openAIFeedData: [];
@@ -56,4 +58,8 @@ export interface IArticleListProps {
 
 export interface ISciPaperListProps {
   data: ISciPaperDataItem[];
+}
+
+export interface IVideoListProps {
+  data: IArticleDataItem[];
 }

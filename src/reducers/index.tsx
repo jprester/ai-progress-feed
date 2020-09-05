@@ -55,6 +55,12 @@ export default (state: IState = INITIAL_STATE, action: IAction) => {
         nvidiaFeedData: action.payload,
       };
 
+    case "SET_YOUTUBE_DATA":
+      return {
+        ...state,
+        youtubeFeedData: action.payload,
+      };
+
     case SET_GOOGLE_FEED_DATA:
       return {
         ...state,

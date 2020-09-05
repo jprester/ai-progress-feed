@@ -184,6 +184,7 @@ h4.menu-title {
 }
 
 .article-list-container,
+.video-list-container,
 .scipaper-list-container {
   position: relative;
   min-height: 200px;
@@ -191,6 +192,7 @@ h4.menu-title {
 }
 
 .article-list li,
+.video-list li,
 .scipaper-list li {
   list-style: none;
 }
@@ -203,7 +205,12 @@ li.article-list-item {
   margin-bottom: 22px;
 }
 
+.video-list-item {
+  margin-bottom: 30px;
+}
+
 .article-list li a,
+.video-list li a,
 .scipaper-list li a {
   display: inline-block;
   height: auto;
@@ -213,13 +220,20 @@ li.article-list-item {
 }
 
 .article-list li a:hover,
+.video-list li a:hover,
 .scipaper-list li a:hover {
   color: #888888;
 }
 
 .article-list li h4,
+.video-list li h4,
 .scipaper-list li h4 {
   margin-bottom: 6px;
+}
+
+.video-list-mini-player {
+  height: 250px;
+  width: 400px;
 }
 
 .article-text-snippet {

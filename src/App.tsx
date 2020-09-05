@@ -10,6 +10,7 @@ import { IAppProps } from "./types/types";
 
 import {
   startFetchArxivFeed,
+  startFetchYoutubeFeed,
   startFetchMicrosoftFeed,
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
@@ -23,6 +24,7 @@ const App = ({
   showMenu,
   menuVisible,
   startFetchArxivFeed,
+  startFetchYoutubeFeed,
   startFetchMicrosoftFeed,
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
@@ -31,6 +33,7 @@ const App = ({
 }: IAppProps) => {
   useEffect(() => {
     startFetchArxivFeed();
+    startFetchYoutubeFeed();
     startFetchMicrosoftFeed();
     startFetchDeepMindFeed();
     startFetchOpenAIFeed();
@@ -60,6 +63,7 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => ({
   showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
   startFetchArxivFeed: () => dispatch(startFetchArxivFeed()),
+  startFetchYoutubeFeed: () => dispatch(startFetchYoutubeFeed()),
   startFetchMicrosoftFeed: () => dispatch(startFetchMicrosoftFeed()),
   startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
   startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
