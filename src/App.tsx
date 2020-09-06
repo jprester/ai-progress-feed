@@ -43,7 +43,7 @@ const App = ({
 
   return (
     <div className="App">
-      <Header history={history} showMenu={showMenu} menuVisible={menuVisible} />
+      <Header />
       <div className="main-content">
         <div className="content-wrapper">
           <Routes />
