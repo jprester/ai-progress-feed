@@ -116,7 +116,6 @@ export const startFetchGoogleAIFeed = () => (dispatch: any) =>
 export const startFetchYoutubeFeed = () => (dispatch: any) =>
   getArticles(SOURCES.YOUTUBE.TWO_MINUTE_PAPERS)
     .then((response) => {
-      console.log("youtube data : ", response);
       if (response.items) {
         dispatch(setYoutubeData(response.items));
       }
