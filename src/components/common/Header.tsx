@@ -13,7 +13,11 @@ const Header = () => {
       <div className="content-wrapper">
         <div className="navigation-content">
           <button className="menu-button" onClick={() => onClickMenuButton()}>
-            <img src="img/menu-button.svg" />
+            <img
+              src={
+                showMenu ? "img/menu-button-close.svg" : "img/menu-button.svg"
+              }
+            />
           </button>
           <h1 className="logo">
             <Link className="header-logo-link" to="/">
