@@ -54,12 +54,15 @@ export interface ISciPaperDataItem {
 
 export interface IArticleListProps {
   data: IArticleDataItem[];
+  moreButton?: string;
 }
 
 export interface ISciPaperListProps {
   data: ISciPaperDataItem[];
+  moreButton?: string;
 }
 
 export interface IVideoListProps {
   data: IArticleDataItem[];
+  moreButton?: string;
 }

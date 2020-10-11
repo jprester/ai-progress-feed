@@ -19,10 +19,6 @@
   padding-top: 40px;
 }
 
-button.show-more-button:hover {
-  opacity: 0.7;
-}
-
 .menu-button {
   background-color: transparent;
   border: 0px none;
@@ -278,19 +274,15 @@ li.article-list-item {
   font-weight: 400;
 }
 
-.show-more-button-container {
-  width: 100%;
-  text-align: center;
-  margin-top: 40px;
+.show-more-button {
+  border: 1px solid #888;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.show-more-button {
-  border: 1px solid #763aef;
-  padding: 8px;
-  cursor: pointer;
-  color: #763aef;
-  font-size: 12px;
-  background-color: transparent;
+a.show-more-button:hover {
+  opacity: 0.7;
 }
 
 .footer-container {

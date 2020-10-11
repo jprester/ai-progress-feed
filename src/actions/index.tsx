@@ -48,7 +48,7 @@ export const showMenu = (isVisible: boolean) => ({
 });
 
 export const startFetchArxivFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.AI_PAPERS.ARXIV)
+  getArticles(SOURCES.AI_PAPERS.ARXIV.FEED)
     .then((response) => {
       if (response.items) {
         dispatch(setArxivFeedData(response.items));
@@ -59,7 +59,7 @@ export const startFetchArxivFeed = () => (dispatch: any) =>
     });
 
 export const startFetchMicrosoftFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.MICROSOFT)
+  getArticles(SOURCES.COMPANIES.MICROSOFT.FEED)
     .then((response) => {
       if (response.items) {
         dispatch(setMicrosoftFeedData(response.items));
@@ -70,7 +70,7 @@ export const startFetchMicrosoftFeed = () => (dispatch: any) =>
     });
 
 export const startFetchOpenAIFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.OPENAI)
+  getArticles(SOURCES.COMPANIES.OPENAI.FEED)
     .then((response) => {
       if (response.items) {
         dispatch(setOpenAIFeedData(response.items));
@@ -81,7 +81,7 @@ export const startFetchOpenAIFeed = () => (dispatch: any) =>
     });
 
 export const startFetchDeepMindFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.DEEPMIND)
+  getArticles(SOURCES.COMPANIES.DEEPMIND.FEED)
     .then((response) => {
       if (response.items) {
         dispatch(setDeepMindFeedData(response.items));
@@ -92,7 +92,7 @@ export const startFetchDeepMindFeed = () => (dispatch: any) =>
     });
 
 export const startFetchNvidiaFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.NVIDIA)
+  getArticles(SOURCES.COMPANIES.NVIDIA.FEED)
     .then((response) => {
       if (response.items) {
         dispatch(setNvidiaFeedData(response.items));
@@ -103,7 +103,7 @@ export const startFetchNvidiaFeed = () => (dispatch: any) =>
     });
 
 export const startFetchGoogleAIFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.GOOGLE)
+  getArticles(SOURCES.COMPANIES.GOOGLE.FEED)
     .then((response) => {
       if (response.items) {
         dispatch(setGoogleFeedData(response.items));
@@ -114,7 +114,7 @@ export const startFetchGoogleAIFeed = () => (dispatch: any) =>
     });
 
 export const startFetchYoutubeFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.YOUTUBE.TWO_MINUTE_PAPERS)
+  getArticles(SOURCES.YOUTUBE.TWO_MINUTE_PAPERS.FEED)
     .then((response) => {
       if (response.items) {
         dispatch(setYoutubeData(response.items));

@@ -20,11 +20,21 @@ const createSciPaperList = (list: ISciPaperDataItem[], maxItems: number = 10) =>
     }
   });
 
-const SciPaperList = ({ data }: ISciPaperListProps) => {
+const SciPaperList = ({ data, moreButton }: ISciPaperListProps) => {
+  console.log("more button: ", moreButton);
   return (
     <div className="article-list-container">
       {data && data.length ? (
-        <ul className="article-list">{createSciPaperList(data)}</ul>
+        <>
+          <ul className="article-list">{createSciPaperList(data)}</ul>
+          {moreButton && (
+            <div>
+              <a href={moreButton} className="show-more-button">
+                Show more
+              </a>
+            </div>
+          )}
+        </>
       ) : (
         <Loader />
       )}

@@ -21,11 +21,21 @@ const createArticleList = (list: IArticleDataItem[], maxItems: number = 10) =>
     }
   });
 
-const ArticleList = ({ data }: IArticleListProps) => {
+const ArticleList = ({ data, moreButton }: IArticleListProps) => {
+  console.log("article data: ", data);
   return (
     <div className="article-list-container">
       {data && data.length ? (
-        <ul className="article-list">{createArticleList(data)}</ul>
+        <>
+          <ul className="article-list">{createArticleList(data)}</ul>
+          {moreButton && (
+            <div>
+              <a href={moreButton} className="show-more-button">
+                Show more
+              </a>
+            </div>
+          )}
+        </>
       ) : (
         <Loader />
       )}

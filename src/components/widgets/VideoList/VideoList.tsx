@@ -21,11 +21,20 @@ const createVideoList = (list: IArticleDataItem[], maxItems: number = 3) =>
     }
   });
 
-const VideoList = ({ data }: IVideoListProps) => {
+const VideoList = ({ data, moreButton }: IVideoListProps) => {
   return (
     <div className="video-list-container">
       {data && data.length ? (
-        <ul className="video-list">{createVideoList(data)}</ul>
+        <>
+          <ul className="video-list">{createVideoList(data)}</ul>
+          {moreButton && (
+            <div>
+              <a href={moreButton} className="show-more-button">
+                Show more
+              </a>
+            </div>
+          )}
+        </>
       ) : (
         <Loader />
       )}
