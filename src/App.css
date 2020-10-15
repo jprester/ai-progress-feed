@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .header-container {
   background-color: #02203c;
   height: 44px;
