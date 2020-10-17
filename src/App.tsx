@@ -15,20 +15,19 @@ import {
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
   startFetchNvidiaFeed,
+  startFetchAmazonFeed,
   startFetchGoogleAIFeed,
   showMenu,
 } from "./actions/";
 
 const App = ({
-  history,
-  showMenu,
-  menuVisible,
   startFetchArxivFeed,
   startFetchYoutubeFeed,
   startFetchMicrosoftFeed,
   startFetchOpenAIFeed,
   startFetchDeepMindFeed,
   startFetchNvidiaFeed,
+  startFetchAmazonFeed,
   startFetchGoogleAIFeed,
 }: IAppProps) => {
   useEffect(() => {
@@ -38,7 +37,7 @@ const App = ({
     startFetchDeepMindFeed();
     startFetchOpenAIFeed();
     startFetchNvidiaFeed();
-    startFetchGoogleAIFeed();
+    startFetchAmazonFeed(), startFetchGoogleAIFeed();
   }, []);
 
   return (
@@ -68,6 +67,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
   startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
   startFetchNvidiaFeed: () => dispatch(startFetchNvidiaFeed()),
+  startFetchAmazonFeed: () => dispatch(startFetchAmazonFeed()),
   startFetchGoogleAIFeed: () => dispatch(startFetchGoogleAIFeed()),
 });
 

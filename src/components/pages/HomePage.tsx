@@ -51,6 +51,13 @@ const Home = (props: IHomePageProps) => {
         data={props.nvidiaFeedData}
         moreButton={SOURCES.COMPANIES.NVIDIA.WEB}
       />
+      <h3 className="feed-list-title" id="nvidia">
+        Amazon
+      </h3>
+      <ArticleList
+        data={props.amazonFeedData}
+        moreButton={SOURCES.COMPANIES.AMAZON.WEB}
+      />
       <h3 className="feed-list-title" id="google">
         Google AI
       </h3>

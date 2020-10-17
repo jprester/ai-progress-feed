@@ -279,10 +279,11 @@ li.article-list-item {
 }
 
 .show-more-button {
-  border: 1px solid #888;
+  border: 1px solid #02203c;
   padding: 5px 10px;
   font-size: 14px;
   font-weight: bold;
+  color: #02203c;
 }
 
 a.show-more-button:hover {

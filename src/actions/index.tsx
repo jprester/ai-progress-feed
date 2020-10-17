@@ -12,10 +12,12 @@ import {
   SHOW_MORE_ITEMS,
   UPDATE_SEARCH_TEXT,
   SET_ARXIV_FEED_DATA,
+  SET_YOUTUBE_FEED_DATA,
   SET_MICROSOFT_FEED_DATA,
   SET_OPENAI_FEED_DATA,
   SET_DEEPMIND_FEED_DATA,
   SET_NVIDIA_FEED_DATA,
+  SET_AMAZON_FEED_DATA,
   SET_GOOGLE_FEED_DATA,
 } from "./types";
 
@@ -63,6 +65,17 @@ export const startFetchMicrosoftFeed = () => (dispatch: any) =>
     .then((response) => {
       if (response.items) {
         dispatch(setMicrosoftFeedData(response.items));
+      }
+    })
+    .catch((error) => {
+      console.warn(error);
+    });
+
+export const startFetchAmazonFeed = () => (dispatch: any) =>
+  getArticles(SOURCES.COMPANIES.AMAZON.FEED)
+    .then((response) => {
+      if (response.items) {
+        dispatch(setAmazonFeedData(response.items));
       }
     })
     .catch((error) => {
@@ -149,6 +162,11 @@ export const setNvidiaFeedData = (data: any) => ({
   type: SET_NVIDIA_FEED_DATA,
 });
 
+export const setAmazonFeedData = (data: any) => ({
+  payload: data,
+  type: SET_AMAZON_FEED_DATA,
+});
+
 export const setGoogleFeedData = (data: any) => ({
   payload: data,
   type: SET_GOOGLE_FEED_DATA,
@@ -156,7 +174,7 @@ export const setGoogleFeedData = (data: any) => ({
 
 export const setYoutubeData = (data: any) => ({
   payload: data,
-  type: "SET_YOUTUBE_DATA",
+  type: SET_YOUTUBE_FEED_DATA,
 });
 
 export const getSearchResults = (articles: []) => ({

@@ -6,7 +6,6 @@ export interface IState {
   openAIFeedData: number[];
   nvidiaFeedData: number[];
   googleFeedData: number[];
-  searchQuery: string;
 }
 
 export interface IAction {
@@ -24,6 +23,7 @@ export interface IAppProps {
   startFetchOpenAIFeed: any;
   startFetchDeepMindFeed: any;
   startFetchNvidiaFeed: any;
+  startFetchAmazonFeed: any;
   startFetchGoogleAIFeed: any;
 }
 export interface IHomePageProps {
@@ -33,6 +33,7 @@ export interface IHomePageProps {
   deepMindFeedData: [];
   openAIFeedData: [];
   nvidiaFeedData: [];
+  amazonFeedData: [];
   googleFeedData: [];
   historyData?: any;
 }

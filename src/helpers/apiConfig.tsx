@@ -52,6 +52,10 @@ export const SOURCES = {
       WEB:
         "https://news.developer.nvidia.com/category/artificial-intelligence/",
     },
+    AMAZON: {
+      FEED: "https://aws.amazon.com/blogs/machine-learning/feed/",
+      WEB: "https://aws.amazon.com/blogs/machine-learning/",
+    },
     GOOGLE: {
       FEED: "http://feeds.feedburner.com/blogspot/gJZg?format=xml",
       WEB: "",

@@ -11,6 +11,7 @@ const mapStateToProps = (state: IHomePageProps) => {
     deepMindFeedData: state.deepMindFeedData,
     openAIFeedData: state.openAIFeedData,
     nvidiaFeedData: state.nvidiaFeedData,
+    amazonFeedData: state.amazonFeedData,
     googleFeedData: state.googleFeedData,
   };
 };
