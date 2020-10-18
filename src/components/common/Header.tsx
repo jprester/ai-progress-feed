@@ -66,6 +66,11 @@ const Header = () => {
               </a>
             </li>
             <li>
+              <a href="/#amazon" onClick={() => setShowMenu(false)}>
+                Amazon
+              </a>
+            </li>
+            <li>
               <a href="/#google" onClick={() => setShowMenu(false)}>
                 Google AI
               </a>

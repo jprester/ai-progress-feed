@@ -22,7 +22,6 @@ const createArticleList = (list: IArticleDataItem[], maxItems: number = 10) =>
   });
 
 const ArticleList = ({ data, moreButton }: IArticleListProps) => {
-  console.log("article data: ", data);
   return (
     <div className="article-list-container">
       {data && data.length ? (

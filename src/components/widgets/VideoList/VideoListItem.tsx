@@ -3,12 +3,7 @@ import React from "react";
 import { formatDate } from "../../../helpers/utils";
 import { IArticleDataItem } from "../../../types/types";
 
-const VideoListItem = ({
-  title,
-  link,
-  contentSnippet,
-  isoDate,
-}: IArticleDataItem) => {
+const VideoListItem = ({ title, link, isoDate }: IArticleDataItem) => {
   return (
     <li className="video-list-item">
       <p className="list-item-date">{formatDate(isoDate)}</p>

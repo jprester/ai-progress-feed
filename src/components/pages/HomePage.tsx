@@ -51,7 +51,7 @@ const Home = (props: IHomePageProps) => {
         data={props.nvidiaFeedData}
         moreButton={SOURCES.COMPANIES.NVIDIA.WEB}
       />
-      <h3 className="feed-list-title" id="nvidia">
+      <h3 className="feed-list-title" id="amazon">
         Amazon
       </h3>
       <ArticleList

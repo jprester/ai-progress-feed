@@ -21,7 +21,6 @@ const createSciPaperList = (list: ISciPaperDataItem[], maxItems: number = 10) =>
   });
 
 const SciPaperList = ({ data, moreButton }: ISciPaperListProps) => {
-  console.log("more button: ", moreButton);
   return (
     <div className="article-list-container">
       {data && data.length ? (
