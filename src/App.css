@@ -298,6 +298,21 @@ a.show-more-button:hover {
   font-size: 10px;
 }
 
+.go-to-top-container {
+  position: fixed;
+  bottom: 0;
+  right: 10%;
+  width: 100%;
+  text-align: right;
+}
+
+.go-to-top-container a.go-to-top-button {
+  padding: 6px;
+  background-color: #02203c;
+  color: #ffffff;
+  font-size: 12px;
+}
+
 .loader-container {
   position: absolute;
   text-align: center;

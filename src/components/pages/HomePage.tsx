@@ -9,6 +9,7 @@ import VideoList from "../widgets/VideoList/VideoList";
 const Home = (props: IHomePageProps) => {
   return (
     <div className="home-page">
+      <a id="top"></a>
       <h3 className="feed-list-title" id="sciPapers">
         Arxiv
       </h3>

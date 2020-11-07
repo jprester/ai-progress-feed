@@ -7,6 +7,11 @@ const Footer = () => (
         <p>Made by: Janko Prester (janko.prester@gmail.com)</p>
       </div>
     </div>
+    <div className="go-to-top-container">
+      <a href="#top" className="go-to-top-button">
+        Back to top
+      </a>
+    </div>
   </div>
 );
 
