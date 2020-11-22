@@ -28,7 +28,7 @@ const VideoList = ({ data, moreButton }: IVideoListProps) => {
         <>
           <ul className="video-list">{createVideoList(data)}</ul>
           {moreButton && (
-            <div>
+            <div className="show-more">
               <a href={moreButton} className="show-more-button">
                 Show more
               </a>

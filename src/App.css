@@ -77,7 +77,7 @@ h3.feed-list-title {
   color: #02203c;
   padding-bottom: 10px;
   border-bottom: 2px solid #02203c;
-  padding-top: 44px;
+  padding-top: 36px;
 }
 
 .navigation-content {
@@ -216,8 +216,12 @@ h4.menu-title {
 }
 
 .list-item-date {
-  font-size: 13px;
+  font-size: 11px;
   color: #02203c;
+}
+
+.list-item-title a {
+  padding: 0;
 }
 
 .article-list-container,
@@ -251,8 +255,8 @@ li.article-list-item {
 .scipaper-list li a {
   display: inline-block;
   height: auto;
-  font-size: 15px;
-  padding: 8px 0px;
+  font-size: 13px;
+  padding: 0px 0px;
   color: #02203c;
 }
 
@@ -278,7 +282,11 @@ li.article-list-item {
   font-weight: 400;
 }
 
-.show-more-button {
+.show-more {
+  margin-top: 20px;
+}
+
+.show-more .show-more-button {
   border: 1px solid #02203c;
   padding: 5px 10px;
   font-size: 14px;

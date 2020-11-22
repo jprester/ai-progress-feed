@@ -27,7 +27,7 @@ const SciPaperList = ({ data, moreButton }: ISciPaperListProps) => {
         <>
           <ul className="article-list">{createSciPaperList(data)}</ul>
           {moreButton && (
-            <div>
+            <div className="show-more">
               <a href={moreButton} className="show-more-button">
                 Show more
               </a>

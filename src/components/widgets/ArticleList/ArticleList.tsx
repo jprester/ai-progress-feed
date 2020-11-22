@@ -28,7 +28,7 @@ const ArticleList = ({ data, moreButton }: IArticleListProps) => {
         <>
           <ul className="article-list">{createArticleList(data)}</ul>
           {moreButton && (
-            <div>
+            <div className="show-more">
               <a href={moreButton} className="show-more-button">
                 Show more
               </a>
