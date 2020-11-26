@@ -8,14 +8,26 @@ const ArticleListItem = ({
   link,
   contentSnippet,
   isoDate,
+  type,
 }: IArticleDataItem) => {
   return (
     <li className="article-list-item">
-      <p className="list-item-date">{formatDate(isoDate)}</p>
+      {isoDate && <p className="list-item-date">{formatDate(isoDate)}</p>}
       <h4 className="list-item-title">
         <a href={link}>{title}</a>
       </h4>
-      <p className="article-text-snippet">{contentSnippet}</p>
+      {type === "videos" && (
+        <iframe
+          src={`https://www.youtube.com/embed/${link.replace(
+            "https://www.youtube.com/watch?v=",
+            ""
+          )}`}
+          className="video-list-mini-player"
+        ></iframe>
+      )}
+      {type === "articles" && contentSnippet && (
+        <p className="article-text-snippet">{contentSnippet}</p>
+      )}
     </li>
   );
 };

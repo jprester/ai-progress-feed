@@ -5,14 +5,7 @@ import { IHomePageProps } from "../types/types";
 
 const mapStateToProps = (state: IHomePageProps) => {
   return {
-    arxivFeedData: state.arxivFeedData,
-    youtubeFeedData: state.youtubeFeedData,
-    microsoftFeedData: state.microsoftFeedData,
-    deepMindFeedData: state.deepMindFeedData,
-    openAIFeedData: state.openAIFeedData,
-    nvidiaFeedData: state.nvidiaFeedData,
-    amazonFeedData: state.amazonFeedData,
-    googleFeedData: state.googleFeedData,
+    feedData: state.feedData,
   };
 };
 

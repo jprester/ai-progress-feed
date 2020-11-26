@@ -4,29 +4,14 @@ import Loader from "../../common/Loader";
 import ArticleListItem from "./ArticleListItem";
 import { IArticleListProps, IArticleDataItem } from "../../../types/types";
 
-const createArticleList = (list: IArticleDataItem[], maxItems: number = 10) =>
-  list.map((item, index: number) => {
-    const { title, gid, contentSnippet, link, isoDate } = item;
-
-    if (title && index <= maxItems) {
-      return (
-        <ArticleListItem
-          key={gid}
-          title={title}
-          link={link}
-          contentSnippet={contentSnippet}
-          isoDate={isoDate}
-        />
-      );
-    }
-  });
-
-const ArticleList = ({ data, moreButton }: IArticleListProps) => {
+const ArticleList = ({ data, moreButton, name, type }: IArticleListProps) => {
+  console.log("data: ", data);
   return (
     <div className="article-list-container">
       {data && data.length ? (
         <>
-          <ul className="article-list">{createArticleList(data)}</ul>
+          <h3 className="feed-list-title">{name}</h3>
+          <ul className="article-list">{createArticleList(data, type)}</ul>
           {moreButton && (
             <div className="show-more">
               <a href={moreButton} className="show-more-button">
@@ -41,5 +26,27 @@ const ArticleList = ({ data, moreButton }: IArticleListProps) => {
     </div>
   );
 };
+
+const createArticleList = (
+  list: IArticleDataItem[],
+  type: string = "articles",
+  maxItems: number = type === "videos" ? 4 : 10
+) =>
+  list.map((item, index: number) => {
+    const { title, gid, contentSnippet, link, isoDate } = item;
+
+    if (title && index <= maxItems) {
+      return (
+        <ArticleListItem
+          key={gid}
+          title={title}
+          link={link}
+          contentSnippet={contentSnippet}
+          isoDate={isoDate}
+          type={type}
+        />
+      );
+    }
+  });
 
 export default ArticleList;

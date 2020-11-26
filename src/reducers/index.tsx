@@ -10,6 +10,7 @@ import {
   SET_NVIDIA_FEED_DATA,
   SET_AMAZON_FEED_DATA,
   SET_GOOGLE_FEED_DATA,
+  SET_FEED_DATA,
 } from "../actions/types";
 import { IState, IAction } from "../types/types";
 
@@ -21,6 +22,7 @@ const INITIAL_STATE = {
   openAIFeedData: [],
   nvidiaFeedData: [],
   googleFeedData: [],
+  feedData: [],
 };
 
 export default (state: IState = INITIAL_STATE, action: IAction) => {
@@ -90,6 +92,12 @@ export default (state: IState = INITIAL_STATE, action: IAction) => {
       return {
         ...state,
         menuVisible: action.payload,
+      };
+
+    case SET_FEED_DATA:
+      return {
+        ...state,
+        feedData: [...state.feedData, action.payload],
       };
 
     default:

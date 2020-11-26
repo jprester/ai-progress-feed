@@ -1,34 +1,20 @@
 import _ from "lodash";
 
 import { getArticles } from "../services/apiService";
-import { SOURCES } from "../helpers/apiConfig";
+import { FEED_SOURCES } from "../helpers/apiConfig";
 import {
   CLEAR_DATA,
   GET_NEWS_ARTICLES,
   GET_SEARCH_RESULTS,
   SET_CATEGORY,
-  SET_IS_FETCHING_FLAG,
   SHOW_MENU,
   SHOW_MORE_ITEMS,
-  UPDATE_SEARCH_TEXT,
-  SET_ARXIV_FEED_DATA,
-  SET_YOUTUBE_FEED_DATA,
-  SET_MICROSOFT_FEED_DATA,
-  SET_OPENAI_FEED_DATA,
-  SET_DEEPMIND_FEED_DATA,
-  SET_NVIDIA_FEED_DATA,
-  SET_AMAZON_FEED_DATA,
-  SET_GOOGLE_FEED_DATA,
+  SET_FEED_DATA,
 } from "./types";
 
 export const getNewsArticles = (articles?: []) => ({
   payload: articles,
   type: GET_NEWS_ARTICLES,
-});
-
-export const updateSearchText = (text?: string) => ({
-  payload: text,
-  type: UPDATE_SEARCH_TEXT,
 });
 
 export const clearData = () => ({
@@ -49,132 +35,45 @@ export const showMenu = (isVisible: boolean) => ({
   type: SHOW_MENU,
 });
 
-export const startFetchArxivFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.AI_PAPERS.ARXIV.FEED)
-    .then((response) => {
-      if (response.items) {
-        dispatch(setArxivFeedData(response.items));
+export const startDataFeedFetch = () => (dispatch: any) => {
+  let includedSources: string[] = [];
+
+  if (process.env.REACT_APP_API_SOURCES) {
+    includedSources = process.env.REACT_APP_API_SOURCES.split(",");
+  }
+
+  includedSources.forEach((item: string) => {
+    Object.entries(FEED_SOURCES).forEach((entry: any) => {
+      if (entry[0] === item) {
+        getArticles(entry[1].FEED)
+          .then((response) => {
+            if (response.items) {
+              dispatch(
+                setFeedData(
+                  Object.assign(
+                    {
+                      feedName: entry[0],
+                      webLink: entry[1].WEB_LINK,
+                      type: entry[1].TYPE,
+                      name: entry[1].NAME,
+                    },
+                    { data: response.items }
+                  )
+                )
+              );
+            }
+          })
+          .catch((error) => {
+            console.warn(error);
+          });
       }
-    })
-    .catch((error) => {
-      console.warn(error);
     });
+  });
+};
 
-export const startFetchMicrosoftFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.MICROSOFT.FEED)
-    .then((response) => {
-      if (response.items) {
-        dispatch(setMicrosoftFeedData(response.items));
-      }
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
-
-export const startFetchAmazonFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.AMAZON.FEED)
-    .then((response) => {
-      if (response.items) {
-        dispatch(setAmazonFeedData(response.items));
-      }
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
-
-export const startFetchOpenAIFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.OPENAI.FEED)
-    .then((response) => {
-      if (response.items) {
-        dispatch(setOpenAIFeedData(response.items));
-      }
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
-
-export const startFetchDeepMindFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.DEEPMIND.FEED)
-    .then((response) => {
-      if (response.items) {
-        dispatch(setDeepMindFeedData(response.items));
-      }
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
-
-export const startFetchNvidiaFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.NVIDIA.FEED)
-    .then((response) => {
-      if (response.items) {
-        dispatch(setNvidiaFeedData(response.items));
-      }
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
-
-export const startFetchGoogleAIFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.COMPANIES.GOOGLE.FEED)
-    .then((response) => {
-      if (response.items) {
-        dispatch(setGoogleFeedData(response.items));
-      }
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
-
-export const startFetchYoutubeFeed = () => (dispatch: any) =>
-  getArticles(SOURCES.YOUTUBE.TWO_MINUTE_PAPERS.FEED)
-    .then((response) => {
-      if (response.items) {
-        dispatch(setYoutubeData(response.items));
-      }
-    })
-    .catch((error) => {
-      console.warn(error);
-    });
-
-export const setArxivFeedData = (data: any) => ({
+export const setFeedData = (data: any) => ({
   payload: data,
-  type: SET_ARXIV_FEED_DATA,
-});
-
-export const setMicrosoftFeedData = (data: any) => ({
-  payload: data,
-  type: SET_MICROSOFT_FEED_DATA,
-});
-
-export const setOpenAIFeedData = (data: any) => ({
-  payload: data,
-  type: SET_OPENAI_FEED_DATA,
-});
-
-export const setDeepMindFeedData = (data: any) => ({
-  payload: data,
-  type: SET_DEEPMIND_FEED_DATA,
-});
-
-export const setNvidiaFeedData = (data: any) => ({
-  payload: data,
-  type: SET_NVIDIA_FEED_DATA,
-});
-
-export const setAmazonFeedData = (data: any) => ({
-  payload: data,
-  type: SET_AMAZON_FEED_DATA,
-});
-
-export const setGoogleFeedData = (data: any) => ({
-  payload: data,
-  type: SET_GOOGLE_FEED_DATA,
-});
-
-export const setYoutubeData = (data: any) => ({
-  payload: data,
-  type: SET_YOUTUBE_FEED_DATA,
+  type: SET_FEED_DATA,
 });
 
 export const getSearchResults = (articles: []) => ({

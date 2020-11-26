@@ -8,36 +8,11 @@ import Header from "./components/common/Header";
 import Routes from "./components/Routes";
 import { IAppProps } from "./types/types";
 
-import {
-  startFetchArxivFeed,
-  startFetchYoutubeFeed,
-  startFetchMicrosoftFeed,
-  startFetchOpenAIFeed,
-  startFetchDeepMindFeed,
-  startFetchNvidiaFeed,
-  startFetchAmazonFeed,
-  startFetchGoogleAIFeed,
-  showMenu,
-} from "./actions/";
+import { startDataFeedFetch, showMenu } from "./actions/";
 
-const App = ({
-  startFetchArxivFeed,
-  startFetchYoutubeFeed,
-  startFetchMicrosoftFeed,
-  startFetchOpenAIFeed,
-  startFetchDeepMindFeed,
-  startFetchNvidiaFeed,
-  startFetchAmazonFeed,
-  startFetchGoogleAIFeed,
-}: IAppProps) => {
+const App = ({ startDataFeedFetch }: IAppProps) => {
   useEffect(() => {
-    startFetchArxivFeed();
-    startFetchYoutubeFeed();
-    startFetchMicrosoftFeed();
-    startFetchDeepMindFeed();
-    startFetchOpenAIFeed();
-    startFetchNvidiaFeed();
-    startFetchAmazonFeed(), startFetchGoogleAIFeed();
+    startDataFeedFetch();
   }, []);
 
   return (
@@ -61,14 +36,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
-  startFetchArxivFeed: () => dispatch(startFetchArxivFeed()),
-  startFetchYoutubeFeed: () => dispatch(startFetchYoutubeFeed()),
-  startFetchMicrosoftFeed: () => dispatch(startFetchMicrosoftFeed()),
-  startFetchOpenAIFeed: () => dispatch(startFetchOpenAIFeed()),
-  startFetchDeepMindFeed: () => dispatch(startFetchDeepMindFeed()),
-  startFetchNvidiaFeed: () => dispatch(startFetchNvidiaFeed()),
-  startFetchAmazonFeed: () => dispatch(startFetchAmazonFeed()),
-  startFetchGoogleAIFeed: () => dispatch(startFetchGoogleAIFeed()),
+  startDataFeedFetch: () => dispatch(startDataFeedFetch()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
