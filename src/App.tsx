@@ -10,14 +10,14 @@ import { IAppProps } from "./types/types";
 
 import { startDataFeedFetch, showMenu } from "./actions/";
 
-const App = ({ startDataFeedFetch }: IAppProps) => {
+const App = ({ startDataFeedFetch, feedData }: IAppProps) => {
   useEffect(() => {
     startDataFeedFetch();
   }, []);
 
   return (
     <div className="App">
-      <Header />
+      <Header data={feedData} />
       <div className="main-content">
         <div className="content-wrapper">
           <Routes />
@@ -31,6 +31,7 @@ const App = ({ startDataFeedFetch }: IAppProps) => {
 const mapStateToProps = (state: any) => {
   return {
     menuVisible: state.menuVisible,
+    feedData: state.feedData,
   };
 };
 

@@ -5,7 +5,7 @@ export const FEED_SOURCES = {
       "https://export.arxiv.org/api/query?search_query=cat:cs.LG&sortBy=submittedDate&sortOrder=descending",
     WEB_LINK: "https://arxiv.org/list/cs.LG/recent",
     TYPE: "scipapers",
-    NAME: "arxiv",
+    NAME: "Arxiv",
   },
   TWO_MINUTE_PAPERS: {
     FEED:
@@ -19,14 +19,14 @@ export const FEED_SOURCES = {
     WEB_LINK:
       "https://www.microsoft.com/en-us/research/blog/category/intelligence/artifical-intelligence/",
     TYPE: "articles",
-    NAME: "MICROSOFT AI",
+    NAME: "Microsoft AI",
   },
   NVIDIA: {
     FEED: "https://feeds.feedburner.com/nvidiablog?format=xml",
     WEB_LINK:
       "https://news.developer.nvidia.com/category/artificial-intelligence/",
     TYPE: "articles",
-    NAME: "NVIDIA AI",
+    NAME: "Nvidia AI",
   },
   DEEPMIND: {
     FEED: "https://deepmind.com/blog/feed/basic/",
@@ -58,7 +58,7 @@ export const FEED_SOURCES = {
       "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzGQrN-lyyc0BWTYoJM_Sg",
     WEB: "https://www.youtube.com/channel/UCUzGQrN-lyyc0BWTYoJM_Sg",
     TYPE: "videos",
-    NAME: "What's Ai",
+    NAME: "What's AI",
   },
   LEX_FRIDMAN: {
     FEED:

@@ -2,15 +2,22 @@ import React from "react";
 
 import Loader from "../../common/Loader";
 import ArticleListItem from "./ArticleListItem";
-import { IArticleListProps, IArticleDataItem } from "../../../types/types";
+import { IArticleList, IArticleDataItem } from "../../../types/types";
 
-const ArticleList = ({ data, moreButton, name, type }: IArticleListProps) => {
-  console.log("data: ", data);
+const ArticleList = ({
+  data,
+  moreButton,
+  name,
+  type,
+  feedName,
+}: IArticleList) => {
   return (
     <div className="article-list-container">
       {data && data.length ? (
         <>
-          <h3 className="feed-list-title">{name}</h3>
+          <h3 className="feed-list-title" id={feedName}>
+            {name}
+          </h3>
           <ul className="article-list">{createArticleList(data, type)}</ul>
           {moreButton && (
             <div className="show-more">
@@ -38,7 +45,7 @@ const createArticleList = (
     if (title && index <= maxItems) {
       return (
         <ArticleListItem
-          key={gid}
+          key={title}
           title={title}
           link={link}
           contentSnippet={contentSnippet}

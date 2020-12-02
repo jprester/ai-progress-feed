@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+import { IArticleList } from "../../types/types";
+interface IHeaderProps {
+  data: IArticleList[];
+}
+
+const Header = ({ data }: IHeaderProps) => {
   const [showMenu, setShowMenu] = useState(false);
   const onClickMenuButton = () => {
     setShowMenu(!showMenu);
@@ -34,46 +39,13 @@ const Header = () => {
       {showMenu && (
         <div className="category-menu">
           <ul>
-            <li>
-              <a href="/#sciPapers" onClick={() => setShowMenu(false)}>
-                Arxiv
-              </a>
-            </li>
-            <li>
-              <a href="/#videos" onClick={() => setShowMenu(false)}>
-                Youtube
-              </a>
-            </li>
-            <li>
-              <a href="/#openai" onClick={() => setShowMenu(false)}>
-                OpenAI
-              </a>
-            </li>
-            <li>
-              <a href="/#deepmind" onClick={() => setShowMenu(false)}>
-                DeepMind
-              </a>
-            </li>
-            <li>
-              <a href="/#microsoft" onClick={() => setShowMenu(false)}>
-                Microsoft
-              </a>
-            </li>
-            <li>
-              <a href="/#nvidia" onClick={() => setShowMenu(false)}>
-                Nvidia
-              </a>
-            </li>
-            <li>
-              <a href="/#amazon" onClick={() => setShowMenu(false)}>
-                Amazon
-              </a>
-            </li>
-            <li>
-              <a href="/#google" onClick={() => setShowMenu(false)}>
-                Google AI
-              </a>
-            </li>
+            {data.map((item) => {
+              return (
+                <li key={item.name}>
+                  <a href={`/#${item.feedName}`}>{item.name}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

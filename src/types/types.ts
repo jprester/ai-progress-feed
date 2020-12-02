@@ -1,12 +1,6 @@
 export interface IState {
   menuVisible: boolean;
-  arxivFeedData: number[];
-  microsoftFeedData: number[];
-  deepMindFeedData: number[];
-  openAIFeedData: number[];
-  nvidiaFeedData: number[];
-  googleFeedData: number[];
-  feedData: number[];
+  feedData: IArticleList[];
 }
 
 export interface IAction {
@@ -19,9 +13,10 @@ export interface IAppProps {
   showMenu: (value: boolean) => void;
   menuVisible: boolean;
   startDataFeedFetch: any;
+  feedData: IArticleList[];
 }
 export interface IHomePageProps {
-  feedData: [];
+  feedData: IArticleList[];
   historyData?: any;
 }
 
@@ -41,10 +36,12 @@ export interface ISciPaperDataItem {
   link: string;
 }
 
-export interface IArticleListProps {
+export interface IArticleList {
   data: IArticleDataItem[];
   moreButton?: string;
   name: string;
+  feedName?: string;
+  webLink?: string;
   type: "articles" | "videos" | "scipapers";
 }
 
