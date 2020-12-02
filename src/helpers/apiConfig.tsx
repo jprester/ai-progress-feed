@@ -1,11 +1,18 @@
 export const PROXY_SERVER = "https://cors-proxy-janko.herokuapp.com";
 export const FEED_SOURCES = {
-  ARXIV: {
+  ARXIV_ML: {
     FEED:
       "https://export.arxiv.org/api/query?search_query=cat:cs.LG&sortBy=submittedDate&sortOrder=descending",
     WEB_LINK: "https://arxiv.org/list/cs.LG/recent",
     TYPE: "scipapers",
-    NAME: "Arxiv",
+    NAME: "Arxiv Machine Learning Papers",
+  },
+  ARXIV_AI: {
+    FEED:
+      "https://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=submittedDate&sortOrder=descending",
+    WEB_LINK: "https://arxiv.org/list/cs.AI/recent",
+    TYPE: "scipapers",
+    NAME: "Arxiv AI Papers",
   },
   TWO_MINUTE_PAPERS: {
     FEED:

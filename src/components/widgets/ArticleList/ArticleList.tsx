@@ -36,11 +36,11 @@ const ArticleList = ({
 
 const createArticleList = (
   list: IArticleDataItem[],
-  type: string = "articles",
+  type: string,
   maxItems: number = type === "videos" ? 4 : 10
 ) =>
   list.map((item, index: number) => {
-    const { title, gid, contentSnippet, link, isoDate } = item;
+    const { title, contentSnippet, link, isoDate } = item;
 
     if (title && index <= maxItems) {
       return (

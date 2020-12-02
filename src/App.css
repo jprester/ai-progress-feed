@@ -250,25 +250,19 @@ li.article-list-item {
   margin-bottom: 30px;
 }
 
-.article-list li a,
-.video-list li a,
-.scipaper-list li a {
+.article-list li a {
   display: inline-block;
   height: auto;
-  font-size: 13px;
+  font-size: 14px;
   padding: 0px 0px;
   color: #02203c;
 }
 
-.article-list li a:hover,
-.video-list li a:hover,
-.scipaper-list li a:hover {
+.article-list li a:hover {
   color: #888888;
 }
 
-.article-list li h4,
-.video-list li h4,
-.scipaper-list li h4 {
+.article-list li h4 {
   margin-bottom: 6px;
 }
 
