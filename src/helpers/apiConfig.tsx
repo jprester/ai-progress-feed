@@ -1,4 +1,4 @@
-export const PROXY_SERVER = "https://cors-proxy-janko.herokuapp.com";
+export const PROXY_SERVER = "https://web-production-38ff.up.railway.app";
 export const FEED_SOURCES = {
   ARXIV_ML: {
     FEED: "https://export.arxiv.org/api/query?search_query=cat:cs.LG&sortBy=submittedDate&sortOrder=descending",
