@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
-import "./App.css";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
-import Routes from "./components/Routes";
+import Home from "./containers/HomePageContainer";
 import { IAppProps } from "./types/types";
-
 import { startDataFeedFetch, showMenu } from "./actions/";
+
+import "./App.css";
 
 const App = ({ startDataFeedFetch, feedData }: IAppProps) => {
   useEffect(() => {
@@ -20,7 +19,7 @@ const App = ({ startDataFeedFetch, feedData }: IAppProps) => {
       <Header data={feedData} />
       <div className="main-content">
         <div className="content-wrapper">
-          <Routes />
+          <Home historyData={history} />
         </div>
       </div>
       <Footer />
@@ -40,4 +39,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   startDataFeedFetch: () => dispatch(startDataFeedFetch()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default connect(mapStateToProps, mapDispatchToProps)(App);

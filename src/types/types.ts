@@ -9,7 +9,6 @@ export interface IAction {
 }
 
 export interface IAppProps {
-  history: any;
   showMenu: (value: boolean) => void;
   menuVisible: boolean;
   startDataFeedFetch: any;
