@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { IArticleList } from "../../types/types";
 interface IHeaderProps {
@@ -23,17 +22,9 @@ const Header = ({ data }: IHeaderProps) => {
               }
             />
           </button>
-          <h1 className="logo">
-            <Link className="header-logo-link" to="/">
-              AI PROGRESS FEED
-            </Link>
-          </h1>
+          <h1 className="logo">AI PROGRESS FEED</h1>
           <p className="header-sub-title">Newest AI papers in one place</p>
-          <div className="navigation-right">
-            <Link className="header-nav-link" to="/about">
-              About
-            </Link>
-          </div>
+          <div className="navigation-right">About</div>
         </div>
       </div>
       {showMenu && (

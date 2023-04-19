@@ -1,8 +1,8 @@
-import Parser from "rss-parser";
+import { XMLParser } from "fast-xml-parser";
 
 import { PROXY_SERVER } from "../helpers/apiConfig";
-let parser = new Parser();
+const parser = new XMLParser();
 
 export async function getArticles(source: string) {
-  return parser.parseURL(`${PROXY_SERVER}/${source}`);
+  return parser.parse(`${PROXY_SERVER}/${source}`);
 }
