@@ -4,6 +4,7 @@ import {
   UPDATE_SEARCH_TEXT,
   SET_FEED_DATA,
 } from "../actions/types";
+import { addOrUpdateObject } from "../helpers/utils";
 import { IState, IAction } from "../types/types";
 
 const INITIAL_STATE = {
@@ -33,13 +34,11 @@ export default (state: IState = INITIAL_STATE, action: IAction) => {
       };
 
     case SET_FEED_DATA:
+      const updatedData =
+        addOrUpdateObject(state.feedData, action.payload) || [];
       return {
         ...state,
-        feedData: [...state.feedData, action.payload].sort((a, b) => {
-          if (a.data[0].isoDate < b.data[0].isoDate) return 1;
-          if (a.data[0].isoDate > b.data[0].isoDate) return -1;
-          return 0;
-        }),
+        feedData: updatedData,
       };
 
     default:

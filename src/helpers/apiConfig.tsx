@@ -12,12 +12,12 @@ export const FEED_SOURCES = {
     TYPE: "scipapers",
     NAME: "Arxiv AI Papers",
   },
-  TWO_MINUTE_PAPERS: {
-    FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg",
-    WEB_LINK: "https://www.youtube.com/c/K%C3%A1rolyZsolnai/featured",
-    TYPE: "videos",
-    NAME: "Two Minute Papers",
-  },
+  // TWO_MINUTE_PAPERS: {
+  //   FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg",
+  //   WEB_LINK: "https://www.youtube.com/c/K%C3%A1rolyZsolnai/featured",
+  //   TYPE: "videos",
+  //   NAME: "Two Minute Papers",
+  // },
   MICROSOFT: {
     FEED: "https://www.microsoft.com/en-us/research/feed/",
     WEB_LINK:
@@ -50,24 +50,24 @@ export const FEED_SOURCES = {
     TYPE: "articles",
     NAME: "Amazon AI",
   },
-  YANNIC_KILCHER: {
-    FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
-    WEB: "https://www.youtube.com/channel/UCZHmQk67mSJgfCCTn7xBfew",
-    TYPE: "videos",
-    NAME: "Yannic Kilcher",
-  },
-  WHATS_AI: {
-    FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzGQrN-lyyc0BWTYoJM_Sg",
-    WEB: "https://www.youtube.com/channel/UCUzGQrN-lyyc0BWTYoJM_Sg",
-    TYPE: "videos",
-    NAME: "What's AI",
-  },
-  LEX_FRIDMAN: {
-    FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA",
-    WEB: "https://www.youtube.com/channel/UCSHZKyawb77ixDdsGog4iWA",
-    TYPE: "videos",
-    NAME: "Lex Fridman",
-  },
+  // YANNIC_KILCHER: {
+  //   FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
+  //   WEB: "https://www.youtube.com/channel/UCZHmQk67mSJgfCCTn7xBfew",
+  //   TYPE: "videos",
+  //   NAME: "Yannic Kilcher",
+  // },
+  // WHATS_AI: {
+  //   FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzGQrN-lyyc0BWTYoJM_Sg",
+  //   WEB: "https://www.youtube.com/channel/UCUzGQrN-lyyc0BWTYoJM_Sg",
+  //   TYPE: "videos",
+  //   NAME: "What's AI",
+  // },
+  // LEX_FRIDMAN: {
+  //   FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA",
+  //   WEB: "https://www.youtube.com/channel/UCSHZKyawb77ixDdsGog4iWA",
+  //   TYPE: "videos",
+  //   NAME: "Lex Fridman",
+  // },
   GOOGLE: {
     FEED: "http://feeds.feedburner.com/blogspot/gJZg?format=xml",
     WEB: "https://ai.googleblog.com/",

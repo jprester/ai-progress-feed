@@ -9,17 +9,16 @@ import { startDataFeedFetch, showMenu } from "./actions/";
 
 import "./App.css";
 
-const App = ({ startDataFeedFetch, feedData }: IAppProps) => {
+const App = ({ feedData }: IAppProps) => {
   useEffect(() => {
     startDataFeedFetch();
   }, []);
-
   return (
     <div className="App">
       <Header data={feedData} />
       <div className="main-content">
         <div className="content-wrapper">
-          <Home historyData={history} />
+          <Home />
         </div>
       </div>
       <Footer />

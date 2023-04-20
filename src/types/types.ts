@@ -16,6 +16,7 @@ export interface IAppProps {
 }
 export interface IHomePageProps {
   feedData: IArticleList[];
+  startDataFeedFetch: any;
   historyData?: any;
 }
 

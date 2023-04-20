@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { IHomePageProps, IArticleList } from "../../types/types";
 import ArticleList from "../widgets/ArticleList/ArticleList";
 import Loader from "../common/Loader";
 
-const Home = ({ feedData }: IHomePageProps) => {
+const Home = ({ feedData, startDataFeedFetch }: IHomePageProps) => {
+  console.log("home component render");
+
+  useEffect(() => {
+    // if (!feedData.length) {
+    startDataFeedFetch();
+    // }
+  }, []);
+
+  useEffect(() => {
+    if (feedData) {
+      console.log("data fetched");
+    }
+  }, [feedData]);
+
   return (
     <div className="home-page">
       <a id="top"></a>
-      {displayData(feedData)}
+      {feedData && displayData(feedData)}
     </div>
   );
 };

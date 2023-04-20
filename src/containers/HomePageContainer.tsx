@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 
 import HomePage from "../components/pages/HomePage";
 import { IHomePageProps } from "../types/types";
+import { startDataFeedFetch } from "../actions";
 
 const mapStateToProps = (state: IHomePageProps) => {
   return {
@@ -9,4 +10,8 @@ const mapStateToProps = (state: IHomePageProps) => {
   };
 };
 
-export default connect(mapStateToProps)(HomePage);
+const mapDispatchToProps = (dispatch: any) => ({
+  startDataFeedFetch: () => dispatch(startDataFeedFetch()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

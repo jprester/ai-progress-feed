@@ -1,6 +1,7 @@
 import _ from "lodash";
 
 import { getArticles } from "../services/apiService";
+import { parseFeedData } from "../helpers/utils";
 import { FEED_SOURCES } from "../helpers/apiConfig";
 import {
   CLEAR_DATA,
@@ -47,7 +48,8 @@ export const startDataFeedFetch = () => (dispatch: any) => {
       if (entry[0] === item) {
         getArticles(entry[1].FEED)
           .then((response) => {
-            if (response.items) {
+            const feedData = parseFeedData(response);
+            if (feedData) {
               dispatch(
                 setFeedData(
                   Object.assign(
@@ -57,7 +59,7 @@ export const startDataFeedFetch = () => (dispatch: any) => {
                       type: entry[1].TYPE,
                       name: entry[1].NAME,
                     },
-                    { data: response.items }
+                    { data: !!feedData.item ? feedData.item : feedData.entry }
                   )
                 )
               );
