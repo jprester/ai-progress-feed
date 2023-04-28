@@ -3,16 +3,15 @@ import { connect } from "react-redux";
 
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
-import Home from "./containers/HomePageContainer";
+import Home from "./pages/HomePage";
+
 import { IAppProps } from "./types/types";
-import { startDataFeedFetch, showMenu } from "./actions/";
 
 import "./App.css";
 
-const App = ({ feedData }: IAppProps) => {
-  useEffect(() => {
-    startDataFeedFetch();
-  }, []);
+const App = () => {
+  const feedData: any = [];
+
   return (
     <div className="App">
       <Header data={feedData} />
@@ -26,16 +25,4 @@ const App = ({ feedData }: IAppProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return {
-    menuVisible: state.menuVisible,
-    feedData: state.feedData,
-  };
-};
-
-const mapDispatchToProps = (dispatch: any) => ({
-  showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
-  startDataFeedFetch: () => dispatch(startDataFeedFetch()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

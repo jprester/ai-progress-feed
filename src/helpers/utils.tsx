@@ -23,8 +23,6 @@ export function parseFeedData(data: any) {
 }
 
 export function addOrUpdateObject(array: any[], newObject: any) {
-  console.log("array: ", array);
-  console.log("newObject: ", newObject);
   let newArray = array;
   const index = newArray.findIndex(
     (item) => item.webLink === newObject.webLink
