@@ -27,6 +27,7 @@ export interface IArticleDataItem {
   gid?: string;
   contentSnippet?: string;
   type: string;
+  id: string;
 }
 
 export interface ISciPaperDataItem {

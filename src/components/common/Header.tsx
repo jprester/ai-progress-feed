@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
+import { Link } from "react-router-dom";
+
+import RequestDataContext from "../../context/RequestDataContext";
 import { IArticleList } from "../../types/types";
-interface IHeaderProps {
-  data: IArticleList[];
-}
 
-const Header = ({ data }: IHeaderProps) => {
+const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const onClickMenuButton = () => {
     setShowMenu(!showMenu);
   };
+
+  const { requestData } = useContext(RequestDataContext);
+  console.log("requestData: ", requestData);
 
   return (
     <div className="header-container">
@@ -22,15 +25,21 @@ const Header = ({ data }: IHeaderProps) => {
               }
             />
           </button>
-          <h1 className="logo">AI PROGRESS FEED</h1>
+          <h1 className="logo">
+            <Link to="/">AI PROGRESS FEED</Link>
+          </h1>
           <p className="header-sub-title">Newest AI papers in one place</p>
-          <div className="navigation-right">About</div>
+          <div className="navigation-right">
+            <Link to="/about" className="header-nav-link">
+              About
+            </Link>
+          </div>
         </div>
       </div>
       {showMenu && (
         <div className="category-menu">
           <ul>
-            {data.map((item) => {
+            {requestData.map((item) => {
               return (
                 <li key={item.name}>
                   <a href={`/#${item.feedName}`}>{item.name}</a>

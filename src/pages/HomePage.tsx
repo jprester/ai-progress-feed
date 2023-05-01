@@ -1,70 +1,49 @@
-import React, { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 import { XMLParser } from "fast-xml-parser";
 
-import { IHomePageProps, IArticleList } from "../types/types";
+import { IArticleList } from "../types/types";
 import ArticleList from "../components/widgets/ArticleList/ArticleList";
 import Loader from "../components/common/Loader";
 
-import { PROXY_SERVER } from "../helpers/apiConfig";
+import { PROXY_SERVER, FEED_SOURCES } from "../helpers/apiConfig";
 import { parseFeedData } from "../helpers/utils";
+import RequestDataContext from "../context/RequestDataContext";
 
 const Home = () => {
-  const feedData: any = [];
-
   const parser = new XMLParser();
 
-  const [data, setData] = useState<any[]>([]);
+  const { requestData, setRequestData } = useContext(RequestDataContext);
+
+  console.log("requestData: ", requestData);
 
   useEffect(() => {
-    const dataArray = [
-      {
-        id: 1,
-        name: "Object 1",
-        url: "https://export.arxiv.org/api/query?search_query=cat:cs.LG&sortBy=submittedDate&sortOrder=descending",
-      },
-      {
-        id: 2,
-        name: "Object 2",
-        url: "https://www.microsoft.com/en-us/research/feed/",
-      },
-      // ,
-      // {
-      //   id: 3,
-      //   name: "Object 3",
-      //   url: "https://jsonplaceholder.typicode.com/posts?userId=3",
-      // },
-    ];
+    const feedRequestData = Object.entries(FEED_SOURCES).map(
+      ([key, value]) => ({
+        id: key.toUpperCase(),
+        ...value,
+      })
+    );
 
     const fetchData = async () => {
       try {
         const newDataArray = await Promise.all(
-          dataArray.map(async (dataObject) => {
-            const response = await fetch(`${PROXY_SERVER}/${dataObject.url}`);
+          feedRequestData.map(async (dataObject) => {
+            const response = await fetch(`${PROXY_SERVER}/${dataObject.FEED}`);
             const xmlResponse = await response.text();
-
-            // feedName: entry[0],
-            // webLink: entry[1].WEB_LINK,
-            // type: entry[1].TYPE,
-            // name: entry[1].NAME,
-
             const parsedResult = parser.parse(xmlResponse);
-
             const parsedFeedData = parseFeedData(parsedResult);
 
-            console.log("parsedFeedData", parsedFeedData);
-
             return {
-              feedName: dataObject.name,
-              webLink: dataObject.url,
-              name: dataObject.name,
+              feedName: dataObject.NAME,
+              webLink: dataObject.WEB_LINK,
+              name: dataObject.NAME,
+              type: dataObject.TYPE,
               data: parsedFeedData.entry || parsedFeedData.item,
             };
           })
         );
-
-        console.log("newDataArray", newDataArray);
-        setData(newDataArray);
+        setRequestData(newDataArray.filter((item) => item?.data?.length > 0));
       } catch (error) {
         console.error(error);
       }
@@ -72,30 +51,11 @@ const Home = () => {
     fetchData();
   }, []);
 
-  function List({ items }: { items: any[] }) {
-    return (
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>{item.title}</li>
-        ))}
-      </ul>
-    );
-  }
-
-  console.log("data for render: ", data);
-
   return (
     <div className="home-page">
       <a id="top"></a>
 
-      {/* {data.map((item) => (
-        <div key={item.id}>
-          <p>{item.title}</p>
-          {Array.isArray(item.entry) && <List items={item.entry} />}
-        </div>
-      ))} */}
-
-      {data && displayData(data)}
+      {requestData && displayData(requestData)}
     </div>
   );
 };
