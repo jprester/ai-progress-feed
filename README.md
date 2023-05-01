@@ -6,7 +6,7 @@ Netlify link: https://ai-progress-feed.netlify.app/
 
 ## Description
 
-App for aggregating info about most recent work and published paper in AI. Made with React.js, Redux and Typescript.
+App for aggregating info about most recent work and published papers in AI. Made with React.js, Redux and Typescript.
 
 ## Technical overview
 
