@@ -50,24 +50,24 @@ export const FEED_SOURCES = {
     TYPE: "articles",
     NAME: "Amazon AI",
   },
-  // YANNIC_KILCHER: {
-  //   FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
-  //   WEB_LINK: "https://www.youtube.com/channel/UCZHmQk67mSJgfCCTn7xBfew",
-  //   TYPE: "videos",
-  //   NAME: "Yannic Kilcher",
-  // },
-  // WHATS_AI: {
-  //   FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzGQrN-lyyc0BWTYoJM_Sg",
-  //   WEB_LINK: "https://www.youtube.com/channel/UCUzGQrN-lyyc0BWTYoJM_Sg",
-  //   TYPE: "videos",
-  //   NAME: "What's AI",
-  // },
-  // LEX_FRIDMAN: {
-  //   FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA",
-  //   WEB_LINK: "https://www.youtube.com/channel/UCSHZKyawb77ixDdsGog4iWA",
-  //   TYPE: "videos",
-  //   NAME: "Lex Fridman",
-  // },
+  YANNIC_KILCHER: {
+    FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
+    WEB_LINK: "https://www.youtube.com/channel/UCZHmQk67mSJgfCCTn7xBfew",
+    TYPE: "videos",
+    NAME: "Yannic Kilcher",
+  },
+  WHATS_AI: {
+    FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzGQrN-lyyc0BWTYoJM_Sg",
+    WEB_LINK: "https://www.youtube.com/channel/UCUzGQrN-lyyc0BWTYoJM_Sg",
+    TYPE: "videos",
+    NAME: "What's AI",
+  },
+  LEX_FRIDMAN: {
+    FEED: "https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA",
+    WEB_LINK: "https://www.youtube.com/channel/UCSHZKyawb77ixDdsGog4iWA",
+    TYPE: "videos",
+    NAME: "Lex Fridman",
+  },
   // GOOGLE: {
   //   FEED: "http://feeds.feedburner.com/blogspot/gJZg?format=xml",
   //   WEB_LINK: "https://ai.googleblog.com/",
