@@ -27,14 +27,11 @@ export function addOrUpdateObject(array: any[], newObject: any) {
   const index = newArray.findIndex(
     (item) => item.webLink === newObject.webLink
   );
-  console.log("index: ", index);
   if (index !== -1) {
     newArray[index] = newObject;
   } else {
     newArray.push(newObject);
   }
-
-  console.log("newArray: ", newArray);
 
   return newArray;
 }

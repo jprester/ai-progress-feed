@@ -12,7 +12,6 @@ const Header = () => {
   };
 
   const { requestData } = useContext(RequestDataContext);
-  console.log("requestData: ", requestData);
 
   return (
     <div className="header-container">

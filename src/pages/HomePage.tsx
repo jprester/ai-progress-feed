@@ -41,7 +41,16 @@ const Home = () => {
             };
           })
         );
-        setRequestData(newDataArray.filter((item) => item?.data?.length > 0));
+        setRequestData(
+          newDataArray
+            .filter((item) => item?.data?.length > 0)
+            .sort((a, b) => {
+              // Sort entries by the date of the first article
+              if (a.data[0].published < b.data[0].published) return 1;
+              if (a.data[0].published > b.data[0].published) return -1;
+              return 0;
+            })
+        );
       } catch (error) {
         console.error(error);
       }
