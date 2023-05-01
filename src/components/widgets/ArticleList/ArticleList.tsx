@@ -40,7 +40,7 @@ const createArticleList = (
   maxItems: number = type === "videos" ? 4 : 10
 ) =>
   list.map((item, index: number) => {
-    const { title, contentSnippet, link, isoDate } = item;
+    const { title, contentSnippet, link, isoDate, id } = item;
 
     if (title && index <= maxItems) {
       return (
@@ -48,6 +48,7 @@ const createArticleList = (
           key={title}
           title={title}
           link={link}
+          id={id}
           contentSnippet={contentSnippet}
           isoDate={isoDate}
           type={type}

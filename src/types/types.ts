@@ -9,7 +9,6 @@ export interface IAction {
 }
 
 export interface IAppProps {
-  history: any;
   showMenu: (value: boolean) => void;
   menuVisible: boolean;
   startDataFeedFetch: any;
@@ -17,6 +16,7 @@ export interface IAppProps {
 }
 export interface IHomePageProps {
   feedData: IArticleList[];
+  startDataFeedFetch: any;
   historyData?: any;
 }
 
@@ -27,6 +27,7 @@ export interface IArticleDataItem {
   gid?: string;
   contentSnippet?: string;
   type: string;
+  id: string;
 }
 
 export interface ISciPaperDataItem {

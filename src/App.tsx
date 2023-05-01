@@ -1,43 +1,36 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./App.css";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
-import Routes from "./components/Routes";
+import Home from "./pages/HomePage";
+import About from "./pages/AboutPage";
+
+import { RequestDataProvider } from "./context/RequestDataContext";
 import { IAppProps } from "./types/types";
 
-import { startDataFeedFetch, showMenu } from "./actions/";
+import "./App.css";
 
-const App = ({ startDataFeedFetch, feedData }: IAppProps) => {
-  useEffect(() => {
-    startDataFeedFetch();
-  }, []);
-
+const App = () => {
   return (
     <div className="App">
-      <Header data={feedData} />
-      <div className="main-content">
-        <div className="content-wrapper">
-          <Routes />
-        </div>
-      </div>
-      <Footer />
+      <RequestDataProvider>
+        <BrowserRouter>
+          <Header />
+          <div className="main-content">
+            <div className="content-wrapper">
+              <div className="main-container">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                </Routes>
+              </div>
+            </div>
+          </div>
+          <Footer />
+        </BrowserRouter>
+      </RequestDataProvider>
     </div>
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return {
-    menuVisible: state.menuVisible,
-    feedData: state.feedData,
-  };
-};
-
-const mapDispatchToProps = (dispatch: any) => ({
-  showMenu: (isVisible: boolean) => dispatch(showMenu(isVisible)),
-  startDataFeedFetch: () => dispatch(startDataFeedFetch()),
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default App;
