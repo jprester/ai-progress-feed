@@ -15,8 +15,6 @@ const Home = () => {
 
   const { requestData, setRequestData } = useContext(RequestDataContext);
 
-  console.log("requestData: ", requestData);
-
   useEffect(() => {
     const feedRequestData = Object.entries(FEED_SOURCES).map(
       ([key, value]) => ({
