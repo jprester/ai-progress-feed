@@ -10,7 +10,7 @@ App for aggregating info about most recent work and published papers in AI. Made
 
 ## Technical overview
 
-App is based on react/redux combo that manipulates data received from various APIs and RSS feeds related to AI research. The development process is trying to use Test Driven approach and Functional programming guidelines. Code is written in TypeScript.
+App is based on react that manipulates data received from various APIs and RSS feeds related to AI research. The development process is trying to use Test Driven approach and Functional programming guidelines. Code is written in TypeScript.
 
 ## Installation
 
