@@ -17,22 +17,21 @@ const ArticleListItem = ({
   }
 
   return (
-    <li className="article-list-item">
+    <li
+      className={`article-list-item ${
+        type === "videos" ? "video-item" : "text-item"
+      }`}>
       {isoDate && <p className="list-item-date">{formatDate(isoDate)}</p>}
-      <h4 className="list-item-title">
-        <a
-          href={
-            type === "videos" ? `https://www.youtube.com/watch?v=${url}` : url
-          }
-        >
-          {title}
-        </a>
-      </h4>
+      <a
+        href={
+          type === "videos" ? `https://www.youtube.com/watch?v=${url}` : url
+        }>
+        {title}
+      </a>
       {type === "videos" && (
         <iframe
           src={`https://www.youtube.com/embed/${url}`}
-          className="video-list-mini-player"
-        ></iframe>
+          className="video-list-mini-player"></iframe>
       )}
       {type === "articles" && contentSnippet && (
         <p className="article-text-snippet">{contentSnippet}</p>

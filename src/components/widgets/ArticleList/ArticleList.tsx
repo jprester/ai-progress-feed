@@ -22,7 +22,7 @@ const ArticleList = ({
           {moreButton && (
             <div className="show-more">
               <a href={moreButton} className="show-more-button">
-                Show more
+                Show more ...
               </a>
             </div>
           )}
