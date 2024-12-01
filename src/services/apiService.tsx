@@ -1,6 +1,7 @@
 import { XMLParser } from "fast-xml-parser";
 
 import { PROXY_SERVER } from "../helpers/apiConfig";
+
 const parser = new XMLParser();
 
 const fetchArticles = async (source: string) => {

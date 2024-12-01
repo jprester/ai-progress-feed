@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import RequestDataContext from "../../context/RequestDataContext";
 import { IArticleList } from "../../types/types";
 
-const Header = () => {
-  const [showMenu, setShowMenu] = useState(false);
-  const onClickMenuButton = () => {
-    setShowMenu(!showMenu);
-  };
-
+const Header = ({
+  onClickMenuButton,
+  showMenu,
+}: {
+  onClickMenuButton: () => void;
+  showMenu: boolean;
+}) => {
   const { requestData } = useContext(RequestDataContext);
-
   return (
     <div className="header-container">
       <div className="content-wrapper">
@@ -36,7 +36,7 @@ const Header = () => {
         </div>
       </div>
       {showMenu && (
-        <div className="category-menu">
+        <div className="side-menu">
           <ul>
             {requestData.map((item) => {
               return (
